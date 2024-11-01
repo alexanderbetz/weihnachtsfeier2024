@@ -1,6 +1,8 @@
 import {
   AbsoluteFill,
+  Audio,
   Sequence,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -17,6 +19,11 @@ export const Intro: React.FC = () => {
   // NOTE: Jeder Charakter bekommt eine eigene Sequence in der er exklusiv animiert wird
   return (
     <>
+      <Audio src={staticFile("SP2.mp3")} />
+      <Sequence from={24 * 2}>
+        <Audio src={staticFile("SP1.mp3")} />
+      </Sequence>
+
       <Sequence name="Dude">
         <AbsoluteFill style={{ top: 200, left: 650 }}>
           <Dude />
