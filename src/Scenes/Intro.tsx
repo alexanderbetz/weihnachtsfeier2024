@@ -1,6 +1,7 @@
 import {
   AbsoluteFill,
   Audio,
+  Img,
   Sequence,
   staticFile,
   useCurrentFrame,
@@ -19,31 +20,29 @@ export const Intro: React.FC = () => {
   // NOTE: Jeder Charakter bekommt eine eigene Sequence in der er exklusiv animiert wird
   return (
     <>
+      <Img src={staticFile("city.jpg")} />
       <Audio src={staticFile("SP2.mp3")} />
-      <Sequence from={24 * 2}>
-        <Audio src={staticFile("SP1.mp3")} />
-      </Sequence>
 
       <Sequence name="Dude">
-        <AbsoluteFill style={{ top: 200, left: 650 }}>
-          <Dude />
+        <AbsoluteFill style={{ top: 670, left: 1000 }}>
+          <Dude scale={0.12} />
         </AbsoluteFill>
       </Sequence>
 
       <Sequence name="Danny">
         <Sequence durationInFrames={24 * 2}>
-          <AbsoluteFill style={{ top: 300, left: 200 }}>
-            <Danny />
+          <AbsoluteFill style={{ top: 670, left: 180 }}>
+            <Danny scale={0.12} />
           </AbsoluteFill>
         </Sequence>
-        <Sequence durationInFrames={24 * 1.5} from={24 * 2}>
-          <Walk start={{ x: 200, y: 300 }} end={{ x: 1200, y: 350 }}>
-            <Danny />
+        <Sequence durationInFrames={24 * 8} from={24 * 2}>
+          <Walk start={{ x: 180, y: 670 }} end={{ x: 1200, y: 670 }}>
+            <Danny scale={0.12} />
           </Walk>
         </Sequence>
-        <Sequence from={24 * 3.5} durationInFrames={24 * 5}>
-          <AbsoluteFill style={{ top: 350, left: 1200 }}>
-            <Danny />
+        <Sequence from={24 * 10} durationInFrames={24 * 2}>
+          <AbsoluteFill style={{ top: 670, left: 1200 }}>
+            <Danny scale={0.12} />
           </AbsoluteFill>
         </Sequence>
       </Sequence>

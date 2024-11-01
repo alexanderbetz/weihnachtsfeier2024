@@ -8,6 +8,7 @@ export const characterSchema = z.object({
   eyeAngle: z.enum(["left", "right"]).optional(),
   headRotation: z.number().optional(),
   headTranslation: z.enum(["elevated", "lowered"]).optional(),
+  scale: z.number().optional(),
   assets: z
     .object({
       body: z.string().optional(),
@@ -18,11 +19,8 @@ export const characterSchema = z.object({
 });
 
 export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
-  return (
-    <Img
-      height={props.assets?.bodyHeight}
-      width={props.assets?.bodyWidth}
-      src={props.assets?.body ?? ""}
-    />
-  );
+  const height = (props.assets?.bodyHeight ?? 0) * (props.scale ?? 1);
+  const width = (props.assets?.bodyWidth ?? 0) * (props.scale ?? 1);
+
+  return <Img height={height} width={width} src={props.assets?.body ?? ""} />;
 };

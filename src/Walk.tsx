@@ -1,4 +1,4 @@
-import { Children, ReactChildren, ReactNode } from "react";
+import { ReactNode } from "react";
 import {
   AbsoluteFill,
   interpolate,
@@ -31,7 +31,8 @@ export const Walk: React.FC = (props: {
     [props.start.y, props.end.y],
   );
 
-  const rotation = (f / 2) % 2 === 0 ? "rotate(1.5deg)" : "rotate(-1.5deg)";
+  const rotation =
+    frame % 4 === 0 || frame % 4 === 1 ? "rotate(1.5deg)" : "rotate(-1.5deg)";
 
   return (
     <AbsoluteFill
