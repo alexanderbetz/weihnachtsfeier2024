@@ -10,6 +10,8 @@ import {
 import { Walk } from "../Walk";
 import { Danny } from "../Character/Danny";
 import { Dude } from "../Character/Dude";
+import { Thomas } from "../Character/Thomas";
+import { Satan } from "../Character/Satan";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -26,6 +28,18 @@ export const Intro: React.FC = () => {
       <Sequence name="Dude">
         <AbsoluteFill style={{ top: 670, left: 1000 }}>
           <Dude scale={0.12} />
+        </AbsoluteFill>
+      </Sequence>
+
+      <Sequence name="Thomas">
+        <AbsoluteFill style={{ top: 900, left: 1000 }}>
+          <Thomas scale={0.3} />
+        </AbsoluteFill>
+      </Sequence>
+
+      <Sequence name="Satan">
+        <AbsoluteFill style={{ top: 500, left: 1050 }}>
+          <Satan scale={0.12} />
         </AbsoluteFill>
       </Sequence>
 
