@@ -7,7 +7,7 @@ export const Satan: React.FC<z.infer<typeof characterSchema>> = (props) => {
     <Character
       {...props}
       assets={{
-        body: staticFile("satan.webp"),
+        body: staticFile("characters/satan.webp"),
         bodyWidth: 906 * 2,
         bodyHeight: 1066 * 2,
       }}

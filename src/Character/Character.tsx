@@ -22,5 +22,12 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
   const height = (props.assets?.bodyHeight ?? 0) * (props.scale ?? 1);
   const width = (props.assets?.bodyWidth ?? 0) * (props.scale ?? 1);
 
-  return <Img height={height} width={width} src={props.assets?.body ?? ""} />;
+  return (
+    <>
+      <div>
+        <div className="character-head rounded-full bg-[#fedab5] size-[400px] relative"></div>
+        <Img height={height} width={width} src={props.assets?.body ?? ""} />
+      </div>
+    </>
+  );
 };

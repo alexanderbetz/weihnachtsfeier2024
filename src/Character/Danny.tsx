@@ -7,7 +7,7 @@ export const Danny: React.FC<z.infer<typeof characterSchema>> = (props) => {
     <Character
       {...props}
       assets={{
-        body: staticFile("avatar.png"),
+        body: staticFile("characters/danny.png"),
         bodyWidth: 476,
         bodyHeight: 643,
       }}
