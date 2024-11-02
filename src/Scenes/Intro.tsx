@@ -23,7 +23,7 @@ export const Intro: React.FC = () => {
   return (
     <>
       <Img src={staticFile("city.jpg")} />
-      <Audio src={staticFile("SP2.mp3")} />
+      <Audio src={staticFile("jingle-2.mp3")} />
 
       <Sequence name="Dude">
         <AbsoluteFill style={{ top: 670, left: 1000 }}>
