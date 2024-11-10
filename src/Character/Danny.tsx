@@ -1,15 +1,17 @@
 import { staticFile } from "remotion";
-import { Character, characterSchema } from "./Character";
+import { Character, characterSchema } from "./Base";
 import { z } from "zod";
 
-export const Danny: React.FC<z.infer<typeof characterSchema>> = (props) => {
+export const Danny: React.FC<
+  Omit<z.infer<typeof characterSchema>, "assets">
+> = (props) => {
   return (
     <Character
       {...props}
       assets={{
-        body: staticFile("characters/danny.png"),
-        bodyWidth: 476,
-        bodyHeight: 643,
+        body: staticFile("characters/danny/body.png"),
+        head: staticFile("characters/danny/head.png"),
+        headAccessories: [staticFile("characters/danny/head_accessory_1.png")],
       }}
     />
   );

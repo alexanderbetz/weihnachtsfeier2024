@@ -6,13 +6,14 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@remotion/animation-utils": "4.0.225",
     "@remotion/cli": "4.0.225",
+    "@remotion/tailwind": "4.0.225",
     "@remotion/zod-types": "4.0.225",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remotion": "4.0.225",
-    "zod": "3.22.3",
-    "@remotion/tailwind": "4.0.225"
+    "zod": "3.22.3"
   },
   "devDependencies": {
     "@remotion/eslint-config": "4.0.225",

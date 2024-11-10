@@ -20,7 +20,7 @@ export const Eyes: React.FC = () => {
       <Img src={staticFile("locations/city.jpg")} />
 
       <Sequence name="Danny">
-        <AbsoluteFill style={{ top: 100, left: 700 }}>
+        <AbsoluteFill style={{ top: 0, left: 700 }}>
           <Danny scale={1.3} />
         </AbsoluteFill>
       </Sequence>

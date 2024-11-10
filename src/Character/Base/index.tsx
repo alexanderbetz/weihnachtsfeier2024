@@ -1,0 +1,129 @@
+import { z } from "zod";
+import { ScalableImg } from "../../Components/ScalableImg";
+import { Mouth } from "./Mouth";
+import {
+  continueRender,
+  delayRender,
+  staticFile,
+  useCurrentFrame,
+} from "remotion";
+import { makeTransform, rotate, translate } from "@remotion/animation-utils";
+import { useRefChange } from "../../util/use-ref-change";
+import { useEffect, useState } from "react";
+
+export const characterSchema = z.object({
+  assets: z.object({
+    body: z.string(),
+    head: z.string(),
+    headAccessories: z.array(z.string()).optional(),
+  }),
+  characterState: z.object({
+    current: z.object({
+      eyeBrows: z.enum(["normal", "angry"]).optional(),
+      mouth: z.enum(["closed", "open"]).optional(),
+      eyes: z.enum(["closed", "x"]).optional(),
+      eyeAngle: z.enum(["left", "right"]).optional(),
+      headRotation: z.number(),
+      headTranslation: z.object({ x: z.number(), y: z.number() }),
+      translation: z.object({ x: z.number(), y: z.number() }),
+      rotation: z.number(),
+      scale: z.number(),
+    }),
+  }),
+});
+
+export function getDefaultCharacterState(): CharacterState {
+  return {
+    headRotation: 0,
+    headTranslation: { x: 0, y: 0 },
+    translation: { x: 0, y: 0 },
+    rotation: 0,
+    scale: 1,
+  };
+}
+
+export type CharacterState = z.infer<
+  typeof characterSchema
+>["characterState"]["current"];
+
+export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
+  const state = useRefChange(props.characterState);
+  const scale = state.scale ?? 1;
+
+  return (
+    <>
+      <div
+        className="absolute h-[1080px] w-[1920px]"
+        style={{
+          top: (state.translation?.y ?? 0) + "px",
+          left: (state.translation?.x ?? 0) + "px",
+          transform: makeTransform(
+            [state.rotation ? rotate(state.rotation) : undefined].filter(
+              Boolean,
+            ) as string[],
+          ),
+          transformOrigin: "bottom",
+        }}
+      >
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+          <ScalableImg src={props.assets.body} scale={scale} />
+        </div>
+
+        <div
+          className="character-head absolute h-[1080px] w-[1920px]"
+          style={{
+            bottom: 172 * scale + "px",
+            transform: makeTransform(
+              [
+                state.headRotation ? rotate(state.headRotation) : undefined,
+                state.headTranslation
+                  ? translate(state.headTranslation.x, state.headTranslation.y)
+                  : undefined,
+              ].filter(Boolean) as string[],
+            ),
+          }}
+        >
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+            <ScalableImg src={props.assets.head} scale={scale} />
+          </div>
+
+          <div
+            className="mouth absolute left-1/2 -translate-x-1/2"
+            style={{ bottom: 35 * scale + "px" }}
+          >
+            <Mouth scale={scale} />
+          </div>
+
+          <div
+            className="eyes absolute left-1/2 -translate-x-1/2"
+            style={{ bottom: 100 * scale + "px" }}
+          >
+            <ScalableImg
+              src={staticFile("eyes/center.png")}
+              scale={scale * 0.7}
+            />
+          </div>
+
+          <div
+            className="eye-brows absolute left-1/2 -translate-x-1/2"
+            style={{ bottom: 250 * scale + "px" }}
+          >
+            <ScalableImg
+              src={staticFile("eyebrows/eyebrow-normal.png")}
+              scale={scale * 0.5}
+            />
+          </div>
+
+          {(props.assets.headAccessories ?? []).map((src) => (
+            <div
+              className="character-head-accessories absolute bottom-0 left-1/2 -translate-x-1/2"
+              key={src}
+            >
+              <ScalableImg scale={scale} src={src} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};

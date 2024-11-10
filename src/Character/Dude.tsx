@@ -1,5 +1,5 @@
 import { staticFile } from "remotion";
-import { Character, characterSchema } from "./Character";
+import { Character, characterSchema } from "./Base";
 import { z } from "zod";
 
 export const Dude: React.FC<z.infer<typeof characterSchema>> = (props) => {
