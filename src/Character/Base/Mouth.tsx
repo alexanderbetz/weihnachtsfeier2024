@@ -1,5 +1,6 @@
 import { staticFile } from "remotion";
 import { z } from "zod";
+import { ScalableImg } from "../../Components/ScalableImg";
 
 export const mouthSchema = z.object({
   mouth: z.enum(["grin", "happy"]).optional(),
@@ -7,30 +8,22 @@ export const mouthSchema = z.object({
 });
 
 export const Mouth: React.FC<z.infer<typeof mouthSchema>> = (props) => {
-  const offset = getMouthOffset(props.mouth ?? "happy");
+  const image = getMouth(props.mouth ?? "happy");
   const scale = props.scale ?? 1;
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${staticFile("/south park mouth chart.jpg.png")})`,
-        backgroundPosition: `${offset.x}px ${offset.y}px`,
-        height: `${offset.height}px`,
-        width: `${offset.width}px`,
-        transform: `scale(${scale * 0.7})`,
-        transformOrigin: "bottom",
-      }}
+    <ScalableImg
+      scale={scale}
+      src={staticFile(`/mouth/mouth-${image}.png`)}
     />
   );
 };
 
-function getMouthOffset(
-  mouth: NonNullable<z.infer<typeof mouthSchema>["mouth"]>,
-): { x: number; y: number; height: number; width: number } {
+function getMouth(mouth: NonNullable<z.infer<typeof mouthSchema>["mouth"]>): string {
   switch (mouth) {
-    case "grin":
-      return { x: -35, y: -40, height: 50, width: 150 };
     case "happy":
-      return { x: -50, y: -640, height: 30, width: 150 };
+      return "20";
+    case "grin":
+      return "1";
   }
 }
