@@ -33,12 +33,18 @@ export const ScalableImg: React.FC<z.infer<typeof scalableImageProps>> = (
     fetchData();
   }, [props.src]);
 
+  const [loadHandle] = useState(() => delayRender());
+  function onImageLoad(){
+    continueRender(loadHandle);
+  }
+
   return (
     <Img
       pauseWhenLoading
       height={dimensions.height ? dimensions.height * scale : undefined}
       width={dimensions.width ? dimensions.width * scale : undefined}
       src={props.src}
+      onLoad={() => onImageLoad()}
     />
   );
 };
