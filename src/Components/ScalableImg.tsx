@@ -19,13 +19,13 @@ export const ScalableImg: React.FC<z.infer<typeof scalableImageProps>> = (
 
   const [renderHandle] = useState(() => delayRender());
   const fetchData = useCallback(async () => {
-    if(dimensions.height && dimensions.width) {
-      continueRender(renderHandle)
-      return
+    if (dimensions.height && dimensions.width) {
+      continueRender(renderHandle);
+      return;
     }
 
-    const meta = await getImageDimensions(props.src)
-    setDimensions(meta)
+    const meta = await getImageDimensions(props.src);
+    setDimensions(meta);
     continueRender(renderHandle);
   }, [props.src]);
 
@@ -34,13 +34,12 @@ export const ScalableImg: React.FC<z.infer<typeof scalableImageProps>> = (
   }, [props.src]);
 
   const [loadHandle] = useState(() => delayRender());
-  function onImageLoad(){
+  function onImageLoad() {
     continueRender(loadHandle);
   }
 
   return (
     <Img
-      pauseWhenLoading
       height={dimensions.height ? dimensions.height * scale : undefined}
       width={dimensions.width ? dimensions.width * scale : undefined}
       src={props.src}

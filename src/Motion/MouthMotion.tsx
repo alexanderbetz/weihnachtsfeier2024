@@ -11,8 +11,11 @@ export enum ConversationType {
 }
 
 const conversations = new Map([
-  [ConversationType.speak_1, [MouthType.open_1, MouthType.unhappy, MouthType.neutral]]
-])
+  [
+    ConversationType.speak_1,
+    [MouthType.open_1, MouthType.unhappy, MouthType.neutral],
+  ],
+]);
 
 export const MouthMotion: React.FC<{
   mouth?: MouthType;
@@ -22,18 +25,18 @@ export const MouthMotion: React.FC<{
 }> = (props) => {
   const frame = useCurrentFrame();
 
-  if(props.mouth !== undefined && props.mouth !== null) {
+  if (props.mouth !== undefined && props.mouth !== null) {
     Object.assign(props.state.current, {
       mouth: props.mouth,
     });
-  } else if(props.conversation !== undefined && props.conversation !== null) {
+  } else if (props.conversation !== undefined && props.conversation !== null) {
     const framesPerMouth = props.fast ? 2 : 3;
     const index = Math.floor(frame / framesPerMouth);
-    const conversation = conversations.get(props.conversation)
+    const conversation = conversations.get(props.conversation);
 
     if (conversation) {
       Object.assign(props.state.current, {
-        mouth: conversation[index % conversation.length]
+        mouth: conversation[index % conversation.length],
       });
     }
   }

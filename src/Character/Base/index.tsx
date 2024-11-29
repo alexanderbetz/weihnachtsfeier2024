@@ -1,9 +1,7 @@
 import { z } from "zod";
 import { ScalableImg } from "../../Components/ScalableImg";
 import { Mouth, MouthType } from "./Mouth";
-import {
-  staticFile,
-} from "remotion";
+import { staticFile } from "remotion";
 import { makeTransform, rotate, translate } from "@remotion/animation-utils";
 import { useRefChange } from "../../util/use-ref-change";
 import { EyeBrows, EyeBrowType } from "./EyeBrows";
@@ -67,7 +65,7 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
         </div>
 
         <div
-          className="character-head absolute h-[1080px] w-[1920px]"
+          className="character-head absolute h-[1080px] w-[1920px] origin-bottom"
           style={{
             bottom: 172 * scale + "px",
             transform: makeTransform(
@@ -88,7 +86,10 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
             className="mouth absolute left-1/2 -translate-x-1/2"
             style={{ bottom: 35 * scale + "px" }}
           >
-            <Mouth scale={scale * 0.8} mouth={props.characterState.current.mouth} />
+            <Mouth
+              scale={scale * 0.8}
+              mouth={props.characterState.current.mouth}
+            />
           </div>
 
           <div
@@ -101,14 +102,14 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
             />
           </div>
 
-          { state.eyeBrows  &&
-          <div
-            className="eye-brows absolute left-1/2 -translate-x-1/2"
-            style={{ bottom: 250 * scale + "px" }}
-          >
-            <EyeBrows scale={scale*0.5} eyeBrow={state.eyeBrows} />
-          </div>
-          }
+          {state.eyeBrows && (
+            <div
+              className="eye-brows absolute left-1/2 -translate-x-1/2"
+              style={{ bottom: 250 * scale + "px" }}
+            >
+              <EyeBrows scale={scale * 0.5} eyeBrow={state.eyeBrows} />
+            </div>
+          )}
 
           {(props.assets.headAccessories ?? []).map((src) => (
             <div
