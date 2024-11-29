@@ -13,7 +13,7 @@ export const eyeBrowSchema = z.object({
 });
 
 export const EyeBrows: React.FC<z.infer<typeof eyeBrowSchema>> = (props) => {
-  const image = getMouth(props.eyeBrow ?? EyeBrowType.normal);
+  const image = getBrows(props.eyeBrow ?? EyeBrowType.normal);
   const scale = props.scale ?? 1;
 
   return (
@@ -24,7 +24,7 @@ export const EyeBrows: React.FC<z.infer<typeof eyeBrowSchema>> = (props) => {
   );
 };
 
-function getMouth(eyeBrow: EyeBrowType): string {
+function getBrows(eyeBrow: EyeBrowType): string {
   switch (eyeBrow) {
     case EyeBrowType.angry:
       return "eyebrow-angry";
