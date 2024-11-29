@@ -7,7 +7,7 @@ import { Config } from "@remotion/cli/config";
 import { enableTailwind } from "@remotion/tailwind";
 
 // NOTE: this project cannot be rendered multithreaded, since character motion relies on state which cannot be recreated declaratively on every frame
-Config.setConcurrency(1);
+// Config.setConcurrency(1);
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
 Config.overrideWebpackConfig(enableTailwind);

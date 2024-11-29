@@ -2,13 +2,20 @@ import { staticFile } from "remotion";
 import { z } from "zod";
 import { ScalableImg } from "../../Components/ScalableImg";
 
+export enum MouthType {
+  happy,
+  neutral,
+  unhappy,
+  open_1,
+}
+
 export const mouthSchema = z.object({
-  mouth: z.enum(["grin", "happy"]).optional(),
+  mouth: z.nativeEnum(MouthType).optional(),
   scale: z.number().optional(),
 });
 
 export const Mouth: React.FC<z.infer<typeof mouthSchema>> = (props) => {
-  const image = getMouth(props.mouth ?? "happy");
+  const image = getMouth(props.mouth ?? MouthType.happy);
   const scale = props.scale ?? 1;
 
   return (
@@ -19,11 +26,15 @@ export const Mouth: React.FC<z.infer<typeof mouthSchema>> = (props) => {
   );
 };
 
-function getMouth(mouth: NonNullable<z.infer<typeof mouthSchema>["mouth"]>): string {
+function getMouth(mouth: MouthType): string {
   switch (mouth) {
-    case "happy":
+    case MouthType.happy:
       return "20";
-    case "grin":
+    case MouthType.neutral:
+      return "2"
+    case MouthType.unhappy:
+      return "5"
+    case MouthType.open_1:
       return "1";
   }
 }
