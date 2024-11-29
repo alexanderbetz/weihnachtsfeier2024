@@ -1,10 +1,10 @@
 import { z } from "zod";
 import { ScalableImg } from "../../Components/ScalableImg";
 import { Mouth, MouthType } from "./Mouth";
-import { staticFile } from "remotion";
 import { makeTransform, rotate, translate } from "@remotion/animation-utils";
 import { useRefChange } from "../../util/use-ref-change";
 import { EyeBrows, EyeBrowType } from "./EyeBrows";
+import { Eyes, EyeType } from "./Eyes";
 
 export const characterSchema = z.object({
   assets: z.object({
@@ -16,8 +16,8 @@ export const characterSchema = z.object({
     current: z.object({
       eyeBrows: z.nativeEnum(EyeBrowType).optional(),
       mouth: z.nativeEnum(MouthType).optional(),
-      eyes: z.enum(["closed", "x"]).optional(),
-      eyeAngle: z.enum(["left", "right"]).optional(),
+      eyes: z.nativeEnum(EyeType).optional(),
+      eyeAngle: z.number().optional(),
       headRotation: z.number(),
       headTranslation: z.object({ x: z.number(), y: z.number() }),
       translation: z.object({ x: z.number(), y: z.number() }),
@@ -86,20 +86,14 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
             className="mouth absolute left-1/2 -translate-x-1/2"
             style={{ bottom: 35 * scale + "px" }}
           >
-            <Mouth
-              scale={scale * 0.8}
-              mouth={props.characterState.current.mouth}
-            />
+            <Mouth scale={scale * 0.8} mouth={state.mouth} />
           </div>
 
           <div
             className="eyes absolute left-1/2 -translate-x-1/2"
             style={{ bottom: 100 * scale + "px" }}
           >
-            <ScalableImg
-              src={staticFile("eyes/center.png")}
-              scale={scale * 0.7}
-            />
+            <Eyes scale={scale * 0.7} eyes={state.eyes} angle={state.eyeAngle} />
           </div>
 
           {state.eyeBrows && (

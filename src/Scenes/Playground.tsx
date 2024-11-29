@@ -1,5 +1,6 @@
 import {
   Audio,
+  interpolate,
   Sequence,
   staticFile,
   useCurrentFrame,
@@ -15,6 +16,8 @@ import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
 import { EyeBrowType } from "../Character/Base/EyeBrows";
 import { ScalableImg } from "../Components/ScalableImg";
 import { HeadMotion, MovementType } from "../Motion/HeadMotion";
+import { EyesMotion } from "../Motion/EyesMotion";
+import { EyeType } from "../Character/Base/Eyes";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -26,6 +29,8 @@ export const Playground: React.FC = () => {
   );
 
   dannyCharacterState.current = getDefaultCharacterState();
+
+  const eyeAngle = interpolate(frame, [0, 48], [0, 360]);
 
   // NOTE: Jeder Charakter bekommt eine eigene Sequence in der er exklusiv animiert wird
   return (
@@ -65,6 +70,11 @@ export const Playground: React.FC = () => {
           <EyeBrowMotion
             state={dannyCharacterState}
             eyeBrow={EyeBrowType.angry}
+          />
+          <EyesMotion
+            eyes={EyeType.open}
+            angle={eyeAngle}
+            state={dannyCharacterState}
           />
         </Sequence>
       </Sequence>
