@@ -11,11 +11,12 @@ export enum EyeType {
 export const eyesSchema = z.object({
   eyes: z.nativeEnum(EyeType).optional(),
   angle: z.number().optional(),
+  blink: z.boolean().optional(),
   scale: z.number().optional(),
 });
 
 export const Eyes: React.FC<z.infer<typeof eyesSchema>> = (props) => {
-  const image = getEyes(props.eyes ?? EyeType.open);
+  const image = getEyes(props.eyes ?? EyeType.open, props.blink);
   const scale = props.scale ?? 1;
 
   const size = 20 * scale;
@@ -30,14 +31,14 @@ export const Eyes: React.FC<z.infer<typeof eyesSchema>> = (props) => {
     y: (225 * scale) / 2,
   };
 
-  function toRadians(angle) {
+  function toRadians(angle: number) {
     return angle * (Math.PI / 180);
   }
 
   const angleLeft = toRadians(props.angle ?? 0);
   const angleRight = toRadians(props.angle ?? 180);
 
-  const eyeRadius = 35 * scale
+  const eyeRadius = 40 * scale
 
   const pupilLeft = {
     x: centerLeft.x + eyeRadius * Math.cos(angleLeft),
@@ -53,7 +54,7 @@ export const Eyes: React.FC<z.infer<typeof eyesSchema>> = (props) => {
     <div className="relative">
       <ScalableImg scale={scale} src={staticFile(`/eyes/${image}.png`)} />
 
-      {(props.eyes === EyeType.open || !props.eyes) && (
+      {(image === 'open') && (
         <>
           <div
             className="absolute eye-pupil-left bg-black rounded-full -translate-x-[50%]"
@@ -80,10 +81,10 @@ export const Eyes: React.FC<z.infer<typeof eyesSchema>> = (props) => {
   );
 };
 
-function getEyes(eyeBrow: EyeType): string {
+function getEyes(eyeBrow: EyeType, blink?: boolean): string {
   switch (eyeBrow) {
     case EyeType.open:
-      return "open";
+      return blink ? "closed" : "open";
     case EyeType.closed:
       return "closed";
     default:

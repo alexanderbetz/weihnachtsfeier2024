@@ -18,6 +18,7 @@ export const characterSchema = z.object({
       mouth: z.nativeEnum(MouthType).optional(),
       eyes: z.nativeEnum(EyeType).optional(),
       eyeAngle: z.number().optional(),
+      blink: z.boolean().optional(),
       headRotation: z.number(),
       headTranslation: z.object({ x: z.number(), y: z.number() }),
       translation: z.object({ x: z.number(), y: z.number() }),
@@ -93,10 +94,10 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
             className="eyes absolute left-1/2 -translate-x-1/2"
             style={{ bottom: 100 * scale + "px" }}
           >
-            <Eyes scale={scale * 0.7} eyes={state.eyes} angle={state.eyeAngle} />
+            <Eyes scale={scale * 0.7} eyes={state.eyes} angle={state.eyeAngle} blink={state.blink} />
           </div>
 
-          {state.eyeBrows && (
+          {state.eyeBrows >= 0 && (
             <div
               className="eye-brows absolute left-1/2 -translate-x-1/2"
               style={{ bottom: 250 * scale + "px" }}
@@ -107,8 +108,8 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
 
           {(props.assets.headAccessories ?? []).map((src) => (
             <div
-              className="character-head-accessories absolute bottom-0 left-1/2 -translate-x-1/2"
               key={src}
+              className="character-head-accessories absolute bottom-0 left-1/2 -translate-x-1/2"
             >
               <ScalableImg scale={scale} src={src} />
             </div>

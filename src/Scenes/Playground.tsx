@@ -4,7 +4,6 @@ import {
   Sequence,
   staticFile,
   useCurrentFrame,
-  useVideoConfig,
 } from "remotion";
 import { Danny } from "../Character/Danny";
 import { useRef } from "react";
@@ -18,19 +17,18 @@ import { ScalableImg } from "../Components/ScalableImg";
 import { HeadMotion, MovementType } from "../Motion/HeadMotion";
 import { EyesMotion } from "../Motion/EyesMotion";
 import { EyeType } from "../Character/Base/Eyes";
-
-// Each <Composition> is an entry in the sidebar!
+import { seconds } from "../util/timing";
+import { BlinkMotion } from "../Motion/BlinkMotion";
 
 export const Playground: React.FC = () => {
   const frame = useCurrentFrame();
-  const { durationInFrames, fps } = useVideoConfig();
   const dannyCharacterState = useRef<CharacterState>(
     getDefaultCharacterState(),
   );
 
   dannyCharacterState.current = getDefaultCharacterState();
 
-  const eyeAngle = interpolate(frame, [0, 48], [0, 360]);
+  const eyeAngle = interpolate(frame, [0, seconds(2)], [0, 360]);
 
   // NOTE: Jeder Charakter bekommt eine eigene Sequence in der er exklusiv animiert wird
   return (
@@ -39,20 +37,32 @@ export const Playground: React.FC = () => {
       <Audio src={staticFile("jingles/jingle-2.mp3")} />
 
       <Sequence name="Character Controller">
+        <Sequence name="Danny blinzeln">
+          <BlinkMotion state={dannyCharacterState} interval={seconds(2)} />
+        </Sequence>
+
         <Sequence name="Danny Scale">
-          <Sequence durationInFrames={24 * 6}>
+          <Sequence durationInFrames={seconds(6)}>
             <Scale start={1} end={0.33} state={dannyCharacterState} />
           </Sequence>
         </Sequence>
 
-        <Sequence name="Danny Head" durationInFrames={24 * 6} from={24 * 6}>
+        <Sequence
+          name="Danny Head"
+          durationInFrames={seconds(6)}
+          from={seconds(6)}
+        >
           <HeadMotion
             movementType={MovementType.normal_2}
             state={dannyCharacterState}
           />
         </Sequence>
 
-        <Sequence durationInFrames={24 * 4} from={24 * 2} name="Danny Walk">
+        <Sequence
+          durationInFrames={seconds(4)}
+          from={seconds(2)}
+          name="Danny Walk"
+        >
           <Walk
             start={{ x: 0, y: -340 }}
             end={{ x: 400, y: -340 }}
@@ -60,13 +70,22 @@ export const Playground: React.FC = () => {
           />
         </Sequence>
 
-        <Sequence durationInFrames={24 * 6} from={24 * 6} name="Danny Talk">
+        <Sequence
+          durationInFrames={seconds(6)}
+          from={seconds(6)}
+          name="Danny Talk"
+        >
           <MouthMotion
             state={dannyCharacterState}
             conversation={ConversationType.speak_1}
           />
         </Sequence>
-        <Sequence durationInFrames={24 * 6} from={24 * 6} name="Danny Eyebrows">
+
+        <Sequence
+          durationInFrames={seconds(6)}
+          from={seconds(6)}
+          name="Danny Eyebrows"
+        >
           <EyeBrowMotion
             state={dannyCharacterState}
             eyeBrow={EyeBrowType.angry}
@@ -77,10 +96,21 @@ export const Playground: React.FC = () => {
             state={dannyCharacterState}
           />
         </Sequence>
+
+        <Sequence durationInFrames={seconds(2)} from={seconds(12)}>
+          <EyeBrowMotion
+            state={dannyCharacterState}
+            eyeBrow={EyeBrowType.normal}
+          />
+        </Sequence>
+
+        <Sequence durationInFrames={seconds(2)} from={seconds(14)}>
+          <EyesMotion eyes={EyeType.x} state={dannyCharacterState} />
+        </Sequence>
       </Sequence>
 
       <Sequence name="Character Composition">
-        <Sequence name="Danny" durationInFrames={24 * 12}>
+        <Sequence name="Danny" durationInFrames={seconds(16)}>
           <Danny characterState={dannyCharacterState} />
         </Sequence>
       </Sequence>
