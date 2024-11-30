@@ -84,8 +84,8 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
           </div>
 
           <div
-            className="mouth absolute left-1/2 -translate-x-1/2"
-            style={{ bottom: 35 * scale + "px" }}
+            className="mouth absolute left-1/2 -translate-x-1/2 translate-y-1/2"
+            style={{ bottom: 50 * scale + "px" }}
           >
             <Mouth scale={scale * 0.8} mouth={state.mouth} />
           </div>
