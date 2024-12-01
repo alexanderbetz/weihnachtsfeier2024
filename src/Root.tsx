@@ -1,7 +1,9 @@
 import "./tailwind.css";
 import { Composition } from "remotion";
-import { Playground } from "./Scenes/Playground";
 import { Scene1 } from "./Scenes/Scene1";
+import { Scene2 } from "./Scenes/Scene2";
+import { Main } from "./Scenes/Main";
+import { seconds } from "./util/timing";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -13,11 +15,9 @@ export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition
-        // You can take the "id" to render a video:
-        // npx remotion render src/index.ts <id> out/video.mp4
-        id="Playground"
-        component={Playground}
-        durationInFrames={fps * 20}
+        id="Main"
+        component={Main}
+        durationInFrames={seconds(24) + seconds(56)}
         fps={fps}
         width={width}
         height={height}
@@ -26,7 +26,97 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Szene-1-Vor-dem-Buero"
         component={Scene1}
-        durationInFrames={fps * 20}
+        durationInFrames={fps * 24}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-2-Buero-Eingang"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-3-Dev-Bereich"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-4-Polaroids"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-5-Klo"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-6-Dev-Bereich"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-7-Klo"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-8-Gindl"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-9-Manhole"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-10-Real-Life"
+        component={Scene2}
+        durationInFrames={fps * 56}
+        fps={fps}
+        width={width}
+        height={height}
+      />
+
+      <Composition
+        id="Szene-11-Credits"
+        component={Scene2}
+        durationInFrames={fps * 56}
         fps={fps}
         width={width}
         height={height}
