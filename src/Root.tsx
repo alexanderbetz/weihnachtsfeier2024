@@ -17,7 +17,19 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Main"
         component={Main}
-        durationInFrames={seconds(24) + seconds(56)}
+        durationInFrames={
+          seconds(24) +
+          seconds(56) +
+          seconds(56) +
+          seconds(56) +
+          seconds(56) +
+          seconds(56) +
+          seconds(56) +
+          seconds(56) +
+          seconds(56) +
+          seconds(56) +
+          seconds(56)
+        }
         fps={fps}
         width={width}
         height={height}
