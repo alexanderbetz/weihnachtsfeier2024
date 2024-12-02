@@ -20,6 +20,7 @@ export const Eyes: React.FC<z.infer<typeof eyesSchema>> = (props) => {
   const scale = props.scale ?? 1;
 
   const size = 20 * scale;
+  const isIdle = props.angle === undefined
 
   // 400x225 image size
   const centerLeft = {
@@ -38,7 +39,7 @@ export const Eyes: React.FC<z.infer<typeof eyesSchema>> = (props) => {
   const angleLeft = toRadians(props.angle ?? 0);
   const angleRight = toRadians(props.angle ?? 180);
 
-  const eyeRadius = 40 * scale
+  const eyeRadius = (isIdle ? 35 : 40) * scale
 
   const pupilLeft = {
     x: centerLeft.x + eyeRadius * Math.cos(angleLeft),
