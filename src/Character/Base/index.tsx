@@ -11,6 +11,8 @@ export const characterSchema = z.object({
     body: z.string(),
     head: z.string(),
     headAccessories: z.array(z.string()).optional(),
+    bodyScale: z.number().optional(),
+    headScale: z.number().optional()
   }),
   characterState: z.object({
     current: z.object({
@@ -45,6 +47,8 @@ export type CharacterState = z.infer<
 export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
   const state = useRefChange(props.characterState);
   const scale = state.scale ?? 1;
+  const bodyScale = (props.assets.bodyScale ?? 1) * scale
+  const headScale = (props.assets.headScale ?? 1) * scale
 
   return (
     <>
@@ -62,7 +66,7 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
         }}
       >
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-          <ScalableImg src={props.assets.body} scale={scale} />
+          <ScalableImg src={props.assets.body} scale={bodyScale} />
         </div>
 
         <div
@@ -80,7 +84,7 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
           }}
         >
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-            <ScalableImg src={props.assets.head} scale={scale} />
+            <ScalableImg src={props.assets.head} scale={headScale} />
           </div>
 
           <div
@@ -111,7 +115,7 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
               key={src}
               className="character-head-accessories absolute bottom-0 left-1/2 -translate-x-1/2"
             >
-              <ScalableImg scale={scale} src={src} />
+              <ScalableImg scale={headScale} src={src} />
             </div>
           ))}
         </div>

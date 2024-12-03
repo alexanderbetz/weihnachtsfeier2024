@@ -33,7 +33,7 @@ export const Playground: React.FC = () => {
   // NOTE: Jeder Charakter bekommt eine eigene Sequence in der er exklusiv animiert wird
   return (
     <>
-      <ScalableImg src={staticFile("locations/city.jpg")} />
+      <ScalableImg src={staticFile("locations/dev-scene.png")} />
       <Audio src={staticFile("jingles/jingle-2.mp3")} />
 
       <Sequence name="Character Controller">
