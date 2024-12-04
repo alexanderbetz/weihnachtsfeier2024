@@ -1,10 +1,4 @@
-import {
-  Audio,
-  Sequence,
-  Series,
-  staticFile,
-  useCurrentFrame,
-} from "remotion";
+import { Audio, Sequence, Series, staticFile, useCurrentFrame } from "remotion";
 import { Danny } from "../Character/Danny";
 import { useRef } from "react";
 import { CharacterState, getDefaultCharacterState } from "../Character/Base";
@@ -22,6 +16,8 @@ import { ConversationType, MouthMotion } from "../Motion/MouthMotion";
 import { HeadMotion, MovementType } from "../Motion/HeadMotion";
 import { MouthType } from "../Character/Base/Mouth";
 import { ChatGpt } from "../Character/ChatGpt";
+import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
+import { EyeBrowType } from "../Character/Base/EyeBrows";
 
 export const Scene4: React.FC = () => {
   const _ = useCurrentFrame();
@@ -97,7 +93,21 @@ export const Scene4: React.FC = () => {
                 state={shabyCharacterState}
               />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={seconds(130)}>
+            <Series.Sequence durationInFrames={seconds(70)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                angle={0}
+                state={shabyCharacterState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(43)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                angle={60}
+                state={shabyCharacterState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(45)}>
               <EyesMotion
                 eyes={EyeType.open}
                 angle={0}
@@ -317,7 +327,10 @@ export const Scene4: React.FC = () => {
               />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(0.3)}>
-              <span />
+              <MouthMotion
+                mouth={MouthType.unhappy}
+                state={shabyCharacterState}
+              />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1.5)}>
               <HeadMotion
@@ -330,7 +343,10 @@ export const Scene4: React.FC = () => {
               />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(0.9)}>
-              <span />
+              <MouthMotion
+                mouth={MouthType.unhappy}
+                state={shabyCharacterState}
+              />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(3)}>
               <HeadMotion
@@ -343,7 +359,10 @@ export const Scene4: React.FC = () => {
               />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(3.5)}>
-              <span />
+              <MouthMotion
+                mouth={MouthType.unhappy}
+                state={shabyCharacterState}
+              />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1.5)}>
               <HeadMotion
@@ -353,6 +372,24 @@ export const Scene4: React.FC = () => {
               <MouthMotion
                 conversation={ConversationType.shout_2}
                 state={shabyCharacterState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(30)}>
+              <MouthMotion
+                mouth={MouthType.unhappy}
+                state={shabyCharacterState}
+              />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(95)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(6)}>
+              <EyeBrowMotion
+                state={shabyCharacterState}
+                eyeBrow={EyeBrowType.angry}
               />
             </Series.Sequence>
           </Series>
@@ -408,6 +445,30 @@ export const Scene4: React.FC = () => {
               />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(40)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                angle={0}
+                state={alexCharacterState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.5)}>
+              <EyesMotion eyes={EyeType.open} state={alexCharacterState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(5)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                angle={180}
+                state={alexCharacterState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(38)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                angle={110}
+                state={alexCharacterState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(38)}>
               <EyesMotion
                 eyes={EyeType.open}
                 angle={0}
@@ -550,11 +611,32 @@ export const Scene4: React.FC = () => {
               />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(53)}>
-              <span />
+              <MouthMotion
+                mouth={MouthType.unhappy}
+                state={alexCharacterState}
+              />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1.4)}>
               <MouthMotion
                 conversation={ConversationType.speak_2}
+                state={alexCharacterState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <MouthMotion
+                mouth={MouthType.unhappy}
+                state={alexCharacterState}
+              />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(127.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <EyeBrowMotion
+                eyeBrow={EyeBrowType.angry}
                 state={alexCharacterState}
               />
             </Series.Sequence>
@@ -702,6 +784,60 @@ export const Scene4: React.FC = () => {
                 conversation={ConversationType.shout_1}
               />
             </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(60)}>
+              <MouthMotion
+                state={klausCharacterState}
+                mouth={MouthType.unhappy}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={klausCharacterState}
+              />
+              <MouthMotion
+                state={klausCharacterState}
+                conversation={ConversationType.shout_1}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.2)}>
+              <MouthMotion
+                state={klausCharacterState}
+                mouth={MouthType.unhappy}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={klausCharacterState}
+              />
+              <MouthMotion
+                state={klausCharacterState}
+                conversation={ConversationType.shout_1}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4.4)}>
+              <MouthMotion
+                state={klausCharacterState}
+                mouth={MouthType.unhappy}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.4)}>
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={klausCharacterState}
+              />
+              <MouthMotion
+                state={klausCharacterState}
+                conversation={ConversationType.shout_1}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4)}>
+              <MouthMotion
+                state={klausCharacterState}
+                mouth={MouthType.unhappy}
+              />
+            </Series.Sequence>
           </Series>
 
           <Series>
@@ -722,18 +858,73 @@ export const Scene4: React.FC = () => {
                 state={klausCharacterState}
               />
             </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <EyesMotion eyes={EyeType.open} state={klausCharacterState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(36)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                angle={140}
+                state={klausCharacterState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(8)}>
+              <EyesMotion eyes={EyeType.open} state={klausCharacterState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                angle={0}
+                state={klausCharacterState}
+              />
+            </Series.Sequence>
           </Series>
         </Sequence>
 
         <Sequence name="ChatGPT Controller">
           <Scale start={0.5} state={chatGptState} />
+          <Stand at={{ x: -212, y: -725 }} state={chatGptState} />
 
           <Series>
             <Series.Sequence durationInFrames={seconds(83.3)}>
-              <Stand at={{ x: -205, y: -510 }} state={chatGptState} />
+              <span />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={seconds(2)}>
-              <Walk start={{ x: -205, y: -510 }} end={{ x: -205, y: -510 }} state={chatGptState} />
+            <Series.Sequence durationInFrames={seconds(0.6)}>
+              <Walk
+                start={{ x: -212, y: -725 }}
+                end={{ x: -212, y: -725 }}
+                state={chatGptState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <Walk
+                start={{ x: -212, y: -725 }}
+                end={{ x: -212, y: -725 }}
+                state={chatGptState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(7.8)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.8)}>
+              <Walk
+                start={{ x: -212, y: -725 }}
+                end={{ x: -212, y: -725 }}
+                state={chatGptState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(16.4)}>
+              <Walk
+                start={{ x: -212, y: -725 }}
+                end={{ x: -212, y: -725 }}
+                state={chatGptState}
+              />
             </Series.Sequence>
           </Series>
         </Sequence>
