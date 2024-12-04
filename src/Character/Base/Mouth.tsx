@@ -39,7 +39,7 @@ export const Mouth: React.FC<z.infer<typeof mouthSchema>> = (props) => {
   const scale = props.scale ?? 1;
 
   return (
-    <ScalableImg scale={scale} src={staticFile(`/mouth/mouth-${image}.png`)} />
+    <ScalableImg key={image} scale={scale} src={staticFile(`/mouth/mouth-${image}.png`)} />
   );
 };
 
