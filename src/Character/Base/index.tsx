@@ -5,14 +5,24 @@ import { makeTransform, rotate, translate } from "@remotion/animation-utils";
 import { useRefChange } from "../../util/use-ref-change";
 import { EyeBrows, EyeBrowType } from "./EyeBrows";
 import { Eyes, EyeType } from "./Eyes";
+import { useCurrentFrame } from "remotion";
 
 export const characterSchema = z.object({
+  offsets: z
+    .object({
+      head: z.number().optional(),
+      eyes: z.number().optional(),
+      eyesScale: z.number().optional(),
+      mouth: z.number().optional(),
+      mouthScale: z.number().optional(),
+    })
+    .optional(),
   assets: z.object({
     body: z.string(),
     head: z.string(),
     headAccessories: z.array(z.string()).optional(),
     bodyScale: z.number().optional(),
-    headScale: z.number().optional()
+    headScale: z.number().optional(),
   }),
   characterState: z.object({
     current: z.object({
@@ -47,8 +57,13 @@ export type CharacterState = z.infer<
 export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
   const state = useRefChange(props.characterState);
   const scale = state.scale ?? 1;
-  const bodyScale = (props.assets.bodyScale ?? 1) * scale
-  const headScale = (props.assets.headScale ?? 1) * scale
+  const bodyScale = (props.assets.bodyScale ?? 1) * scale;
+  const headScale = (props.assets.headScale ?? 1) * scale;
+  const headOffset = props.offsets?.head;
+  const eyesOffset = props.offsets?.eyes;
+  const eyesScale = props.offsets?.eyesScale ?? 1;
+  const mouthOffset = props.offsets?.mouth;
+  const mouthScale = props.offsets?.mouthScale ?? 1;
 
   return (
     <>
@@ -70,9 +85,9 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
         </div>
 
         <div
-          className="character-head absolute h-[1080px] w-[1920px] origin-bottom"
+          className={`character-head absolute h-[1080px] w-[1920px] origin-bottom`}
           style={{
-            bottom: 172 * scale + "px",
+            bottom: (headOffset ?? 172) * scale + "px",
             transform: makeTransform(
               [
                 state.headRotation ? rotate(state.headRotation) : undefined,
@@ -89,16 +104,21 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
 
           <div
             className="mouth absolute left-1/2 -translate-x-1/2 translate-y-1/2"
-            style={{ bottom: 50 * scale + "px" }}
+            style={{ bottom: (mouthOffset ?? 50) * scale + "px" }}
           >
-            <Mouth scale={scale * 0.8} mouth={state.mouth} />
+            <Mouth scale={scale * 0.8 * mouthScale} mouth={state.mouth} />
           </div>
 
           <div
             className="eyes absolute left-1/2 -translate-x-1/2"
-            style={{ bottom: 100 * scale + "px" }}
+            style={{ bottom: (eyesOffset ?? 100) * scale + "px" }}
           >
-            <Eyes scale={scale * 0.7} eyes={state.eyes} angle={state.eyeAngle} blink={state.blink} />
+            <Eyes
+              scale={scale * 0.7 * eyesScale}
+              eyes={state.eyes}
+              angle={state.eyeAngle}
+              blink={state.blink}
+            />
           </div>
 
           {state.eyeBrows >= 0 && (

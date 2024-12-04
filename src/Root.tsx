@@ -5,6 +5,8 @@ import { Scene2 } from "./Scenes/Scene2";
 import { Main } from "./Scenes/Main";
 import { seconds } from "./util/timing";
 import { Scene4 } from "./Scenes/Scene4";
+import { Scene9 } from "./Scenes/Scene9";
+import { Scene8 } from "./Scenes/Scene8";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -57,7 +59,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Szene-3-Dev-Bereich"
         component={Scene2}
-        durationInFrames={fps * 56}
+        durationInFrames={seconds(56)}
         fps={fps}
         width={width}
         height={height}
@@ -101,8 +103,8 @@ export const RemotionRoot: React.FC = () => {
 
       <Composition
         id="Szene-8-Gindl"
-        component={Scene2}
-        durationInFrames={fps * 56}
+        component={Scene8}
+        durationInFrames={seconds(108)}
         fps={fps}
         width={width}
         height={height}
@@ -110,8 +112,8 @@ export const RemotionRoot: React.FC = () => {
 
       <Composition
         id="Szene-9-Manhole"
-        component={Scene2}
-        durationInFrames={fps * 56}
+        component={Scene9}
+        durationInFrames={seconds(99)}
         fps={fps}
         width={width}
         height={height}

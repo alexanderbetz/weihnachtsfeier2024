@@ -25,8 +25,8 @@
     "typescript": "5.5.4"
   },
   "scripts": {
-    "start": "remotion studio",
-    "build": "remotion render HelloWorld out/video.mp4",
+    "start": "remotion studio --no-open",
+    "build": "remotion render Main out/Main.mp4",
     "upgrade": "remotion upgrade",
     "test": "eslint src --ext ts,tsx,js,jsx && tsc"
   },
