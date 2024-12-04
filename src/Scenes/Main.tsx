@@ -2,6 +2,7 @@ import { Sequence } from "remotion";
 import { seconds } from "../util/timing";
 import { Scene1 } from "./Scene1";
 import { Scene2 } from "./Scene2";
+import { Scene4 } from "./Scene4";
 
 export const Main: React.FC = () => {
   return (
@@ -29,7 +30,7 @@ export const Main: React.FC = () => {
         durationInFrames={seconds(56)}
         from={seconds(24) + seconds(56) + seconds(56)}
       >
-        <Scene2 />
+        <Scene4 />
       </Sequence>
       <Sequence
         name="Scene-5"

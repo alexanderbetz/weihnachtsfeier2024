@@ -4,6 +4,7 @@ import { Scene1 } from "./Scenes/Scene1";
 import { Scene2 } from "./Scenes/Scene2";
 import { Main } from "./Scenes/Main";
 import { seconds } from "./util/timing";
+import { Scene4 } from "./Scenes/Scene4";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -64,8 +65,8 @@ export const RemotionRoot: React.FC = () => {
 
       <Composition
         id="Szene-4-Polaroids"
-        component={Scene2}
-        durationInFrames={fps * 56}
+        component={Scene4}
+        durationInFrames={seconds(140)}
         fps={fps}
         width={width}
         height={height}
