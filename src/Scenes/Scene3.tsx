@@ -18,6 +18,7 @@ import { Walk } from "../Motion/Walk";
 import { Klaus } from "../Character/Klaus";
 import { Postler } from "../Character/Postler";
 import { Elisabeth } from "../Character/Elisabeth";
+import { Margaretha } from "../Character/Margaretha";
 
 export const Scene3: React.FC = () => {
   const frame = useCurrentFrame();
@@ -141,7 +142,7 @@ export const Scene3: React.FC = () => {
         </Sequence>
 
         <Sequence name="Elisabeth">
-          <Elisabeth characterState={elisabethState} />
+          <Margaretha characterState={elisabethState} />
         </Sequence>
       </Sequence>
     </>
