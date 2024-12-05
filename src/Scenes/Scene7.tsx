@@ -8,6 +8,10 @@ import { Alex } from "../Character/Alex";
 import { Scale } from "../Motion/Scale";
 import { Walk } from "../Motion/Walk";
 import { Stand } from "../Motion/Stand";
+import { BlinkMotion } from "../Motion/BlinkMotion";
+import { ConversationType, MouthMotion } from "../Motion/MouthMotion";
+import { HeadMotion, MovementType } from "../Motion/HeadMotion";
+import { MouthType } from "../Character/Base/Mouth";
 
 export const Scene7: React.FC = () => {
   const _ = useCurrentFrame();
@@ -28,6 +32,7 @@ export const Scene7: React.FC = () => {
 
       <Sequence name="Character Controller">
         <Sequence name="Shaby Controller">
+          <BlinkMotion state={shabyState} interval={seconds(2)} />
           <Scale start={0.5} state={shabyState} />
           <Stand at={{ x: 200, y: -150 }} state={shabyState} />
 
@@ -53,9 +58,110 @@ export const Scene7: React.FC = () => {
               <Stand at={{ x: -400, y: 500 }} state={shabyState} />
             </Series.Sequence>
           </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.3)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={shabyState}
+              />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(0.7)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.2)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={shabyState}
+              />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(0.6)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={shabyState}
+              />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.1)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={shabyState}
+              />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(4.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.9)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={shabyState}
+              />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(8.4)}>
+              <MouthMotion mouth={MouthType.unhappy} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={shabyState}
+              />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <MouthMotion mouth={MouthType.unhappy} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={shabyState}
+              />
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="Alex Controller">
+          <BlinkMotion state={alexState} interval={seconds(2.5)} />
           <Scale start={0.5} state={alexState} />
           <Stand at={{ x: -100, y: -120 }} state={alexState} />
 
