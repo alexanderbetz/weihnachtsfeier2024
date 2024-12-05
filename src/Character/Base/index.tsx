@@ -124,7 +124,9 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
           {state.eyeBrows >= 0 && (
             <div
               className="eye-brows absolute left-1/2 -translate-x-1/2"
-              style={{ bottom: 250 * scale + "px" }}
+              style={{
+                bottom: (eyesOffset ? eyesOffset + 120 : 250) * scale + "px",
+              }}
             >
               <EyeBrows scale={scale * 0.5} eyeBrow={state.eyeBrows} />
             </div>

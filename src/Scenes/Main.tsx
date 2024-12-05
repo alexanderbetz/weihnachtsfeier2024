@@ -6,6 +6,9 @@ import { Scene4 } from "./Scene4";
 import { Disclaimer } from "./Disclaimer";
 import React from "react";
 import { Scene7 } from "./Scene7";
+import { Scene8 } from "./Scene8";
+import { Scene9 } from "./Scene9";
+import { Scene5 } from "./Scene5";
 
 export const Main: React.FC = () => {
   return (
@@ -31,8 +34,8 @@ export const Main: React.FC = () => {
           <Scene4 />
         </Series.Sequence>
 
-        <Series.Sequence name="Scene-5" durationInFrames={seconds(56)}>
-          <Scene2 />
+        <Series.Sequence name="Scene-5" durationInFrames={seconds(60)}>
+          <Scene5 />
         </Series.Sequence>
 
         <Series.Sequence name="Scene-6" durationInFrames={seconds(56)}>
@@ -43,12 +46,12 @@ export const Main: React.FC = () => {
           <Scene7 />
         </Series.Sequence>
 
-        <Series.Sequence name="Scene-8" durationInFrames={seconds(56)}>
-          <Scene2 />
+        <Series.Sequence name="Scene-8" durationInFrames={seconds(108)}>
+          <Scene8 />
         </Series.Sequence>
 
-        <Series.Sequence name="Scene-9" durationInFrames={seconds(56)}>
-          <Scene2 />
+        <Series.Sequence name="Scene-9" durationInFrames={seconds(99)}>
+          <Scene9 />
         </Series.Sequence>
 
         <Series.Sequence name="Scene-10" durationInFrames={seconds(56)}>

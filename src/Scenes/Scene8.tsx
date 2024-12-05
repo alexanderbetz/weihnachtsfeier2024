@@ -22,9 +22,8 @@ import { EyeType } from "../Character/Base/Eyes";
 import { ScalableImg } from "../Components/ScalableImg";
 import { BlinkMotion } from "../Motion/BlinkMotion";
 import { Alex } from "../Character/Alex";
-import { MichaelJackson } from "../Character/MichaelJackson";
 import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
-import { EyeBrowType } from "../Character/Base/EyeBrows";
+import { EyeBrows, EyeBrowType } from "../Character/Base/EyeBrows";
 import { Gindl } from "../Character/Gindl";
 import { Postler } from "../Character/Postler";
 
@@ -40,7 +39,7 @@ export const Scene8: React.FC = () => {
   alexState.current = getDefaultCharacterState();
   postlerState.current = getDefaultCharacterState();
 
-  const shelfX = interpolate(frame, [seconds(88), seconds(90)], [0, 280], {
+  const shelfX = interpolate(frame, [seconds(88), seconds(90.5)], [0, 280], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
@@ -51,6 +50,10 @@ export const Scene8: React.FC = () => {
         <ScalableImg src={staticFile("locations/gindl_back.png")} />
       </AbsoluteFill>
       <Audio src={staticFile("voices/scene8_gindl.mp3")} />
+
+      <Sequence from={seconds(87.5)} durationInFrames={seconds(2.8)}>
+        <Audio src={staticFile("sounds/gindl-regal-move.mp3")} />
+      </Sequence>
 
       <Sequence name="Character Controller">
         <BlinkMotion state={shabyState} interval={seconds(2.4)} />
@@ -141,16 +144,55 @@ export const Scene8: React.FC = () => {
           </Series>
 
           <Series>
-            <Series.Sequence durationInFrames={seconds(27.5)}>
+            <Series.Sequence durationInFrames={seconds(15)}>
+              <EyesMotion eyes={EyeType.open} angle={160} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4)}>
+              <EyesMotion eyes={EyeType.open} angle={30} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(5)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.9)}>
+              <EyesMotion eyes={EyeType.open} angle={30} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(7.4)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <EyesMotion eyes={EyeType.open} angle={0} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(27.7)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(8.4)}>
+              <EyesMotion eyes={EyeType.open} angle={0} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(8)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.7)}>
+              <EyesMotion eyes={EyeType.open} angle={50} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3.5)}>
+              <EyesMotion eyes={EyeType.open} angle={40} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4.4)}>
+              <EyesMotion eyes={EyeType.open} angle={160} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
               <span />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={seconds(23.8)}>
-              <EyesMotion eyes={EyeType.open} angle={160} state={shabyState} />
+            <Series.Sequence durationInFrames={seconds(4.4)}>
+              <EyesMotion eyes={EyeType.open} angle={40} state={shabyState} />
             </Series.Sequence>
           </Series>
 
           <Series>
-            <Series.Sequence durationInFrames={seconds(28.3)}>
+            <Series.Sequence durationInFrames={seconds(128.3)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(7)}>
@@ -336,11 +378,41 @@ export const Scene8: React.FC = () => {
           </Series>
 
           <Series>
-            <Series.Sequence durationInFrames={seconds(27.5)}>
+            <Series.Sequence durationInFrames={seconds(15)}>
+              <EyesMotion eyes={EyeType.open} angle={160} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4)}>
+              <EyesMotion eyes={EyeType.open} angle={30} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(5)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.9)}>
+              <EyesMotion eyes={EyeType.open} angle={30} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(7.4)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(8.9)}>
               <span />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={seconds(53)}>
+            <Series.Sequence durationInFrames={seconds(45.2)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.6)}>
+              <EyesMotion eyes={EyeType.open} angle={50} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4)}>
+              <EyesMotion eyes={EyeType.open} angle={140} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.9)}>
+              <EyesMotion eyes={EyeType.open} angle={50} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4)}>
               <EyesMotion eyes={EyeType.open} angle={160} state={alexState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <EyesMotion eyes={EyeType.open} angle={60} state={alexState} />
             </Series.Sequence>
           </Series>
         </Sequence>
@@ -396,10 +468,6 @@ export const Scene8: React.FC = () => {
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(4.5)}>
               <MouthMotion mouth={MouthType.unhappy} state={gindlState} />
-              <HeadMotion
-                movementType={MovementType.normal_1}
-                state={gindlState}
-              />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1.1)}>
               <MouthMotion
@@ -748,11 +816,44 @@ export const Scene8: React.FC = () => {
           </Series>
 
           <Series>
-            <Series.Sequence durationInFrames={seconds(27.5)}>
+            <Series.Sequence durationInFrames={seconds(1.5)}>
               <span />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={seconds(53)}>
-              <EyesMotion eyes={EyeType.open} angle={160} state={gindlState} />
+            <Series.Sequence durationInFrames={seconds(12)}>
+              <EyesMotion eyes={EyeType.open} angle={340} state={gindlState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(12)}>
+              <EyesMotion eyes={EyeType.open} angle={0} state={gindlState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(18.6)}>
+              <EyesMotion eyes={EyeType.open} angle={320} state={gindlState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.2)}>
+              <EyesMotion eyes={EyeType.closed} state={gindlState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(27)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(12)}>
+              <EyesMotion eyes={EyeType.open} angle={320} state={gindlState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(7)}>
+              <EyesMotion eyes={EyeType.open} angle={0} state={gindlState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <EyesMotion eyes={EyeType.open} angle={40} state={gindlState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(30)}>
+              <EyesMotion eyes={EyeType.open} angle={340} state={gindlState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(18.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(7)}>
+              <EyeBrowMotion eyeBrow={EyeBrowType.angry} state={gindlState} />
             </Series.Sequence>
           </Series>
         </Sequence>

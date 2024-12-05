@@ -13,7 +13,7 @@ import { Walk } from "../Motion/Walk";
 import { Scale } from "../Motion/Scale";
 import { seconds } from "../util/timing";
 import { ConversationType, MouthMotion } from "../Motion/MouthMotion";
-import { Mouth, MouthType } from "../Character/Base/Mouth";
+import { MouthType } from "../Character/Base/Mouth";
 import { Stand } from "../Motion/Stand";
 import { HeadMotion, MovementType } from "../Motion/HeadMotion";
 import { EyesMotion } from "../Motion/EyesMotion";
@@ -34,7 +34,7 @@ export const Scene1: React.FC = () => {
       extrapolateRight: "clamp",
     },
   );
-  const rickVolume = interpolate(frame - seconds(18), [0, seconds(5)], [0, 1], {
+  const rickVolume = interpolate(frame, [seconds(18), seconds(19)], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
