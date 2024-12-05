@@ -1,5 +1,12 @@
-import { Audio, interpolate, Sequence, Series, staticFile, useCurrentFrame } from "remotion";
-import { Danny } from "../Character/Danny";
+import {
+  AbsoluteFill,
+  Audio,
+  interpolate,
+  Sequence,
+  Series,
+  staticFile,
+  useCurrentFrame,
+} from "remotion";
 import { useRef } from "react";
 import { CharacterState, getDefaultCharacterState } from "../Character/Base";
 import { seconds } from "../util/timing";
@@ -15,6 +22,8 @@ import { MouthType } from "../Character/Base/Mouth";
 import { EyesMotion } from "../Motion/EyesMotion";
 import { EyeType } from "../Character/Base/Eyes";
 import { Shaby } from "../Character/Shaby";
+import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
+import { EyeBrowType } from "../Character/Base/EyeBrows";
 
 export const Scene7: React.FC = () => {
   const frame = useCurrentFrame();
@@ -29,6 +38,33 @@ export const Scene7: React.FC = () => {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
+
+  const alertOpacity = interpolate(
+    frame,
+    [
+      seconds(26.5),
+      seconds(26.6),
+      seconds(30),
+      seconds(32.5),
+      seconds(35),
+      seconds(37.5),
+      seconds(40),
+      seconds(42.5),
+      seconds(45),
+      seconds(47.5),
+      seconds(50),
+      seconds(52.5),
+      seconds(55),
+      seconds(57.5),
+      seconds(60),
+      seconds(62.5),
+      seconds(65),
+    ],
+    [
+      0, 0.2, 0.5, 0.2, 0.5, 0.2, 0.5, 0.2, 0.5, 0.2, 0.5, 0.2, 0.5, 0.2, 0.5,
+      0.2, 0.5,
+    ],
+  );
 
   return (
     <>
@@ -275,6 +311,15 @@ export const Scene7: React.FC = () => {
               <EyesMotion eyes={EyeType.open} state={shabyState} angle={200} />
             </Series.Sequence>
           </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(24.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <EyeBrowMotion state={shabyState} eyeBrow={EyeBrowType.angry} />
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="Alex Controller">
@@ -419,6 +464,12 @@ export const Scene7: React.FC = () => {
             <Series.Sequence durationInFrames={seconds(20)}>
               <EyesMotion eyes={EyeType.open} state={alexState} angle={0} />
             </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(23)}>
+              <EyesMotion eyes={EyeType.open} state={alexState} angle={0} />
+            </Series.Sequence>
           </Series>
         </Sequence>
       </Sequence>
@@ -430,6 +481,13 @@ export const Scene7: React.FC = () => {
 
         <Sequence name="Alex">
           <Alex characterState={alexState} />
+        </Sequence>
+
+        <Sequence name="Alert">
+          <AbsoluteFill
+            className="bg-red-700"
+            style={{ opacity: alertOpacity }}
+          />
         </Sequence>
       </Sequence>
     </>
