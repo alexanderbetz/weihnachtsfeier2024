@@ -142,7 +142,7 @@ export const Scene3: React.FC = () => {
         </Sequence>
 
         <Sequence name="Elisabeth">
-          <Margaretha characterState={elisabethState} />
+          <Elisabeth characterState={elisabethState} />
         </Sequence>
       </Sequence>
     </>
