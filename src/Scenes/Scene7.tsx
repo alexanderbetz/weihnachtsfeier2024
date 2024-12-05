@@ -14,6 +14,7 @@ import { HeadMotion, MovementType } from "../Motion/HeadMotion";
 import { MouthType } from "../Character/Base/Mouth";
 import { EyesMotion } from "../Motion/EyesMotion";
 import { EyeType } from "../Character/Base/Eyes";
+import { Shaby } from "../Character/Shaby";
 
 export const Scene7: React.FC = () => {
   const frame = useCurrentFrame();
@@ -424,7 +425,7 @@ export const Scene7: React.FC = () => {
 
       <Sequence name="Character Composition">
         <Sequence name="Shaby">
-          <Danny characterState={shabyState} />
+          <Shaby characterState={shabyState} />
         </Sequence>
 
         <Sequence name="Alex">

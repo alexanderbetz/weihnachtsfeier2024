@@ -11,7 +11,7 @@ export const Shaby: React.FC<
       assets={{
         body: staticFile("characters/shaby/body.png"),
         head: staticFile("characters/shaby/head.png"),
-        bodyScale: 0.53,
+        bodyScale: 1,
         headScale: 0.53,
       }}
     />
