@@ -9,6 +9,8 @@ import { MichaelJackson } from "../Character/MichaelJackson";
 import { Gindl } from "../Character/Gindl";
 import { Scale } from "../Motion/Scale";
 import { ZodAny } from "zod";
+import { Stand } from "../Motion/Stand";
+import { Shaby } from "../Character/Shaby";
 
 export const Scene5: React.FC = () => {
   const frame = useCurrentFrame();
@@ -28,7 +30,8 @@ export const Scene5: React.FC = () => {
 
       <Sequence name="Character Controller">
         <Sequence name="Shaby">
-          <Scale start={0.6} state={shabyState} />
+          <Scale start={0.5} state={shabyState} />
+          <Stand at={{ x: -600, y: 0 }} state={shabyState} />
 
           <Series>
             <Series.Sequence durationInFrames={seconds(20)}>
@@ -38,7 +41,8 @@ export const Scene5: React.FC = () => {
         </Sequence>
 
         <Sequence name="Alex">
-          <Scale start={0.6} state={alexState} />
+          <Scale start={0.5} state={alexState} />
+          <Stand at={{ x: -300, y: 0 }} state={alexState} />
 
           <Series>
             <Series.Sequence durationInFrames={seconds(20)}>
@@ -48,7 +52,9 @@ export const Scene5: React.FC = () => {
         </Sequence>
 
         <Sequence name="Hazard">
-          <Scale start={0.4} state={hazardState} />
+          <Scale start={0.5} state={hazardState} />
+          <Stand at={{ x: 100, y: 0 }} state={hazardState} />
+
           <Series>
             <Series.Sequence durationInFrames={seconds(20)}>
               <span />
@@ -57,7 +63,9 @@ export const Scene5: React.FC = () => {
         </Sequence>
 
         <Sequence name="Tom Cruise">
-          <Scale start={0.4} state={tomCruiseState} />
+          <Scale start={0.5} state={tomCruiseState} />
+          <Stand at={{ x: 500, y: 0 }} state={tomCruiseState} />
+
           <Series>
             <Series.Sequence durationInFrames={seconds(20)}>
               <span />
@@ -68,7 +76,7 @@ export const Scene5: React.FC = () => {
 
       <Sequence name="Character Composition">
         <Sequence name="Shaby">
-          <Danny characterState={shabyState} />
+          <Shaby characterState={shabyState} />
         </Sequence>
 
         <Sequence name="Alex">

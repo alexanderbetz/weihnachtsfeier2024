@@ -6,7 +6,6 @@ import {
   staticFile,
   useCurrentFrame,
 } from "remotion";
-import { Danny } from "../Character/Danny";
 import { useRef } from "react";
 import { CharacterState, getDefaultCharacterState } from "../Character/Base";
 import { Walk } from "../Motion/Walk";
@@ -20,6 +19,7 @@ import { EyesMotion } from "../Motion/EyesMotion";
 import { EyeType } from "../Character/Base/Eyes";
 import { ScalableImg } from "../Components/ScalableImg";
 import { BlinkMotion } from "../Motion/BlinkMotion";
+import { Shaby } from "../Character/Shaby";
 
 export const Scene1: React.FC = () => {
   const frame = useCurrentFrame();
@@ -200,7 +200,7 @@ export const Scene1: React.FC = () => {
 
       <Sequence name="Character Composition">
         <Sequence name="Danny" from={seconds(3)}>
-          <Danny characterState={shabyState} />
+          <Shaby characterState={shabyState} />
         </Sequence>
 
         <Sequence name="Tesla" durationInFrames={seconds(9)} from={seconds(18)}>

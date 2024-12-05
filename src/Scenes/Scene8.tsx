@@ -7,7 +7,6 @@ import {
   Series,
   interpolate,
 } from "remotion";
-import { Danny } from "../Character/Danny";
 import { useRef } from "react";
 import { CharacterState, getDefaultCharacterState } from "../Character/Base";
 import { Walk } from "../Motion/Walk";
@@ -26,6 +25,7 @@ import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
 import { EyeBrows, EyeBrowType } from "../Character/Base/EyeBrows";
 import { Gindl } from "../Character/Gindl";
 import { Postler } from "../Character/Postler";
+import { Shaby } from "../Character/Shaby";
 
 export const Scene8: React.FC = () => {
   const frame = useCurrentFrame();
@@ -946,7 +946,7 @@ export const Scene8: React.FC = () => {
 
       <Sequence name="Character Composition">
         <Sequence name="Shaby">
-          <Danny characterState={shabyState} />
+          <Shaby characterState={shabyState} />
         </Sequence>
 
         <Sequence name="Gindl">

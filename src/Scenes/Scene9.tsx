@@ -7,7 +7,6 @@ import {
   useCurrentFrame,
   Series,
 } from "remotion";
-import { Danny } from "../Character/Danny";
 import { useRef } from "react";
 import { CharacterState, getDefaultCharacterState } from "../Character/Base";
 import { Walk } from "../Motion/Walk";
@@ -25,6 +24,7 @@ import { Alex } from "../Character/Alex";
 import { MichaelJackson } from "../Character/MichaelJackson";
 import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
 import { EyeBrowType } from "../Character/Base/EyeBrows";
+import { Shaby } from "../Character/Shaby";
 
 export const Scene9: React.FC = () => {
   const frame = useCurrentFrame();
@@ -689,7 +689,7 @@ export const Scene9: React.FC = () => {
       <Sequence name="Character Composition">
         <AbsoluteFill style={{ filter: isRoomDark ? "brightness(0%)" : "" }}>
           <Sequence name="Shaby">
-            <Danny characterState={shabyState} />
+            <Shaby characterState={shabyState} />
           </Sequence>
 
           <Sequence name="Michael">

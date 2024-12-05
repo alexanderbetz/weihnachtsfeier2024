@@ -1,5 +1,4 @@
 import { Audio, Sequence, Series, staticFile, useCurrentFrame } from "remotion";
-import { Danny } from "../Character/Danny";
 import { useRef } from "react";
 import { CharacterState, getDefaultCharacterState } from "../Character/Base";
 import { Walk } from "../Motion/Walk";
@@ -18,6 +17,7 @@ import { MouthType } from "../Character/Base/Mouth";
 import { ChatGpt } from "../Character/ChatGpt";
 import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
 import { EyeBrowType } from "../Character/Base/EyeBrows";
+import { Shaby } from "../Character/Shaby";
 
 export const Scene4: React.FC = () => {
   const _ = useCurrentFrame();
@@ -936,7 +936,7 @@ export const Scene4: React.FC = () => {
         </Sequence>
 
         <Sequence name="Shaby">
-          <Danny characterState={shabyCharacterState} />
+          <Shaby characterState={shabyCharacterState} />
         </Sequence>
 
         <Sequence name="Alex">

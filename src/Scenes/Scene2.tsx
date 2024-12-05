@@ -21,6 +21,7 @@ import { HeadMotion, MovementType } from "../Motion/HeadMotion";
 import { MouthType } from "../Character/Base/Mouth";
 import { EyesMotion } from "../Motion/EyesMotion";
 import { EyeType } from "../Character/Base/Eyes";
+import { Shaby } from "../Character/Shaby";
 
 export const Scene2: React.FC = () => {
   const frame = useCurrentFrame();
@@ -627,7 +628,7 @@ export const Scene2: React.FC = () => {
           from={seconds(15)}
           durationInFrames={seconds(1.5)}
         >
-          <Danny characterState={shabyState} />
+          <Shaby characterState={shabyState} />
         </Sequence>
 
         <AbsoluteFill>
@@ -662,7 +663,7 @@ export const Scene2: React.FC = () => {
           from={seconds(16.5)}
           durationInFrames={seconds(13.5)}
         >
-          <Danny characterState={shabyState} />
+          <Shaby characterState={shabyState} />
         </Sequence>
 
         <Sequence name="Idefix" from={seconds(25.5)}>
