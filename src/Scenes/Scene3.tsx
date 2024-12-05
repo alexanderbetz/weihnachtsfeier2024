@@ -1,9 +1,10 @@
 import {
   AbsoluteFill,
   Audio,
-  Sequence, Series,
+  Sequence,
+  Series,
   staticFile,
-  useCurrentFrame
+  useCurrentFrame,
 } from "remotion";
 import { ScalableImg } from "../Components/ScalableImg";
 import { seconds } from "../util/timing";
@@ -18,7 +19,11 @@ import { Walk } from "../Motion/Walk";
 import { Klaus } from "../Character/Klaus";
 import { Postler } from "../Character/Postler";
 import { Elisabeth } from "../Character/Elisabeth";
-import { Margaretha } from "../Character/Margaretha";
+import { ConversationType, MouthMotion } from "../Motion/MouthMotion";
+import { MouthType } from "../Character/Base/Mouth";
+import { EyesMotion } from "../Motion/EyesMotion";
+import { EyeType } from "../Character/Base/Eyes";
+import { HeadMotion, MovementType } from "../Motion/HeadMotion";
 
 export const Scene3: React.FC = () => {
   const frame = useCurrentFrame();
@@ -61,14 +66,18 @@ export const Scene3: React.FC = () => {
         <Sequence name="Wagenbrein Controller">
           <BlinkMotion state={wagenbreinState} interval={seconds(2.3)} />
           <Scale start={0.4} state={wagenbreinState} />
-          <Stand at={{x: 400, y:-100}} state={wagenbreinState} />
+          <Stand at={{ x: 400, y: -100 }} state={wagenbreinState} />
 
           <Series>
             <Series.Sequence durationInFrames={seconds(3.3)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(0.5)}>
-              <Walk start={{x: 400, y:-100}} end={{x: 400, y:-100}} state={wagenbreinState} />
+              <Walk
+                start={{ x: 400, y: -100 }}
+                end={{ x: 400, y: -100 }}
+                state={wagenbreinState}
+              />
             </Series.Sequence>
           </Series>
         </Sequence>
@@ -76,20 +85,80 @@ export const Scene3: React.FC = () => {
         <Sequence name="Postler Controller">
           <BlinkMotion state={postlerState} interval={seconds(2)} />
           <Scale start={0.6} state={postlerState} />
-          <Stand at={{x: 1100, y: 50}} state={postlerState} />
+          <Stand at={{ x: 1100, y: 50 }} state={postlerState} />
 
           <Series>
             <Series.Sequence durationInFrames={seconds(15.5)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1.5)}>
-              <Walk start={{x: 1100, y: 50}} end={{x: 750, y: 50}} state={postlerState} />
+              <Walk
+                start={{ x: 1100, y: 50 }}
+                end={{ x: 750, y: 50 }}
+                state={postlerState}
+              />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(6.3)}>
-              <Stand at={{x: 750, y: 50}} state={postlerState} />
+              <Stand at={{ x: 750, y: 50 }} state={postlerState} />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1.5)}>
-              <Walk start={{x: 750, y: 50}} end={{x: 1100, y: 50}} state={postlerState} />
+              <Walk
+                start={{ x: 750, y: 50 }}
+                end={{ x: 1100, y: 50 }}
+                state={postlerState}
+              />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(16.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.2)}>
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={postlerState}
+              />
+              <MouthMotion
+                state={postlerState}
+                conversation={ConversationType.speak_2}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={postlerState}
+              />
+              <MouthMotion
+                state={postlerState}
+                conversation={ConversationType.speak_2}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <MouthMotion state={postlerState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(23.5)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                state={postlerState}
+                angle={200}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                state={postlerState}
+                angle={330}
+              />
             </Series.Sequence>
           </Series>
         </Sequence>
@@ -97,20 +166,80 @@ export const Scene3: React.FC = () => {
         <Sequence name="Elisabeth Controller">
           <BlinkMotion state={elisabethState} interval={seconds(2.1)} />
           <Scale start={0.6} state={elisabethState} />
-          <Stand at={{x: 1100, y: 50}} state={elisabethState} />
+          <Stand at={{ x: 1100, y: 50 }} state={elisabethState} />
 
           <Series>
             <Series.Sequence durationInFrames={seconds(55.5)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1.5)}>
-              <Walk start={{x: 1100, y: 50}} end={{x: 750, y: 50}} state={elisabethState} />
+              <Walk
+                start={{ x: 1100, y: 50 }}
+                end={{ x: 750, y: 50 }}
+                state={elisabethState}
+              />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(7.7)}>
-              <Stand at={{x: 750, y: 50}} state={elisabethState} />
+              <Stand at={{ x: 750, y: 50 }} state={elisabethState} />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1.5)}>
-              <Walk start={{x: 750, y: 50}} end={{x: 1100, y: 50}} state={elisabethState} />
+              <Walk
+                start={{ x: 750, y: 50 }}
+                end={{ x: 1100, y: 50 }}
+                state={elisabethState}
+              />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(57.8)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.5)}>
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={elisabethState}
+              />
+              <MouthMotion
+                state={elisabethState}
+                conversation={ConversationType.speak_1}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.4)}>
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={elisabethState}
+              />
+              <MouthMotion
+                state={elisabethState}
+                conversation={ConversationType.speak_1}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4)}>
+              <MouthMotion state={elisabethState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(64.3)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                state={elisabethState}
+                angle={200}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <EyesMotion
+                eyes={EyeType.open}
+                state={elisabethState}
+                angle={330}
+              />
             </Series.Sequence>
           </Series>
         </Sequence>
