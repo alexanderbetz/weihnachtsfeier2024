@@ -29,7 +29,7 @@ export const RemotionRoot: React.FC = () => {
           seconds(56) +
           seconds(56) +
           seconds(134) +
-          seconds(56) +
+          seconds(63) +
           seconds(56) +
           seconds(64) +
           seconds(108) +
@@ -90,7 +90,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Szene-5-Klo"
         component={Scene5}
-        durationInFrames={seconds(60)}
+        durationInFrames={seconds(63)}
         fps={fps}
         width={width}
         height={height}

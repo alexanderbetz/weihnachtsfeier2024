@@ -657,6 +657,10 @@ export const Scene2: React.FC = () => {
         </Sequence>
       </Sequence>
 
+      <AbsoluteFill>
+        <ScalableImg src={staticFile("locations/office_entry_leistn.png")} />
+      </AbsoluteFill>
+
       <Sequence name="Character Composition">
         <Sequence
           name="Shaby"
