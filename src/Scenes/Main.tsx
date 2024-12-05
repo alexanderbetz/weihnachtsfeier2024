@@ -27,7 +27,7 @@ export const Main: React.FC = () => {
           <Scene2 />
         </Series.Sequence>
 
-        <Series.Sequence name="Scene-4" durationInFrames={seconds(56)}>
+        <Series.Sequence name="Scene-4" durationInFrames={seconds(134)}>
           <Scene4 />
         </Series.Sequence>
 
@@ -39,7 +39,7 @@ export const Main: React.FC = () => {
           <Scene2 />
         </Series.Sequence>
 
-        <Series.Sequence name="Scene-7" durationInFrames={seconds(134)}>
+        <Series.Sequence name="Scene-7" durationInFrames={seconds(64)}>
           <Scene7 />
         </Series.Sequence>
 
