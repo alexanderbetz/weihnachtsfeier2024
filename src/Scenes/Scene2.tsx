@@ -22,6 +22,9 @@ import { MouthType } from "../Character/Base/Mouth";
 import { EyesMotion } from "../Motion/EyesMotion";
 import { EyeType } from "../Character/Base/Eyes";
 import { Shaby } from "../Character/Shaby";
+import { Idefix } from "../Character/Idefix";
+import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
+import { EyeBrowType } from "../Character/Base/EyeBrows";
 
 export const Scene2: React.FC = () => {
   const frame = useCurrentFrame();
@@ -147,6 +150,21 @@ export const Scene2: React.FC = () => {
               movementType={MovementType.normal_1}
             />
           </Sequence>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <EyesMotion eyes={EyeType.open} angle={30} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <EyesMotion eyes={EyeType.open} angle={0} state={shabyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <EyesMotion eyes={EyeType.open} angle={220} state={shabyState} />
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="Rick Controller">
@@ -209,13 +227,12 @@ export const Scene2: React.FC = () => {
                   state={rickState}
                   movementType={MovementType.normal_1}
                 />
-                <EyesMotion angle={210} state={rickState} eyes={EyeType.open} />
               </Series.Sequence>
               <Series.Sequence durationInFrames={seconds(3.9)}>
                 <span />
               </Series.Sequence>
 
-              <Series.Sequence durationInFrames={seconds(1.7)} name="Rick Talk">
+              <Series.Sequence durationInFrames={seconds(1.4)} name="Rick Talk">
                 <MouthMotion
                   conversation={ConversationType.speak_1}
                   state={rickState}
@@ -225,7 +242,7 @@ export const Scene2: React.FC = () => {
                   movementType={MovementType.normal_1}
                 />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(0.8)}>
+              <Series.Sequence durationInFrames={seconds(1.1)}>
                 <span />
               </Series.Sequence>
               <Series.Sequence durationInFrames={seconds(0.6)} name="Rick Talk">
@@ -237,6 +254,24 @@ export const Scene2: React.FC = () => {
                   state={rickState}
                   movementType={MovementType.normal_1}
                 />
+              </Series.Sequence>
+            </Series>
+
+            <Series>
+              <Series.Sequence durationInFrames={seconds(5.6)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(1.8)}>
+                <EyesMotion angle={210} state={rickState} eyes={EyeType.open} />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(3)}>
+                <EyesMotion angle={270} state={rickState} eyes={EyeType.open} />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(3.2)}>
+                <EyesMotion angle={180} state={rickState} eyes={EyeType.open} />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(5)}>
+                <EyesMotion angle={270} state={rickState} eyes={EyeType.open} />
               </Series.Sequence>
             </Series>
           </Sequence>
@@ -277,12 +312,12 @@ export const Scene2: React.FC = () => {
             </Series>
 
             <Series>
-              <Series.Sequence durationInFrames={seconds(6.6)}>
+              <Series.Sequence durationInFrames={seconds(6.3)}>
                 <span />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(1.6)}>
+              <Series.Sequence durationInFrames={seconds(2.2)}>
                 <MouthMotion
-                  conversation={ConversationType.shout_2}
+                  conversation={ConversationType.speak_1}
                   state={dannyState}
                 />
                 <HeadMotion
@@ -290,12 +325,12 @@ export const Scene2: React.FC = () => {
                   state={dannyState}
                 />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(7)}>
+              <Series.Sequence durationInFrames={seconds(7.2)}>
                 <span />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(0.5)}>
+              <Series.Sequence durationInFrames={seconds(0.3)}>
                 <MouthMotion
-                  conversation={ConversationType.shout_2}
+                  conversation={ConversationType.speak_1}
                   state={dannyState}
                 />
                 <HeadMotion
@@ -303,12 +338,12 @@ export const Scene2: React.FC = () => {
                   state={dannyState}
                 />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(1)}>
+              <Series.Sequence durationInFrames={seconds(0.4)}>
                 <span />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(1.2)}>
+              <Series.Sequence durationInFrames={seconds(3.5)}>
                 <MouthMotion
-                  conversation={ConversationType.shout_2}
+                  conversation={ConversationType.speak_1}
                   state={dannyState}
                 />
                 <HeadMotion
@@ -316,12 +351,22 @@ export const Scene2: React.FC = () => {
                   state={dannyState}
                 />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(0.5)}>
+              <Series.Sequence durationInFrames={seconds(0.3)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(0.4)}>
+                <MouthMotion mouth={MouthType.open_1} state={dannyState} />
+                <HeadMotion
+                  movementType={MovementType.normal_2}
+                  state={dannyState}
+                />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(0.2)}>
                 <span />
               </Series.Sequence>
               <Series.Sequence durationInFrames={seconds(1.3)}>
                 <MouthMotion
-                  conversation={ConversationType.shout_2}
+                  conversation={ConversationType.speak_1}
                   state={dannyState}
                 />
                 <HeadMotion
@@ -329,12 +374,51 @@ export const Scene2: React.FC = () => {
                   state={dannyState}
                 />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(0.5)}>
+              <Series.Sequence durationInFrames={seconds(0.7)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(1.2)}>
+                <MouthMotion
+                  conversation={ConversationType.speak_1}
+                  state={dannyState}
+                />
+                <HeadMotion
+                  movementType={MovementType.normal_2}
+                  state={dannyState}
+                />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(0.3)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(2.3)}>
+                <MouthMotion
+                  conversation={ConversationType.speak_1}
+                  state={dannyState}
+                />
+                <HeadMotion
+                  movementType={MovementType.normal_2}
+                  state={dannyState}
+                />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(6.7)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(1)}>
+                <MouthMotion
+                  conversation={ConversationType.speak_1}
+                  state={dannyState}
+                />
+                <HeadMotion
+                  movementType={MovementType.normal_2}
+                  state={dannyState}
+                />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(5)}>
                 <span />
               </Series.Sequence>
               <Series.Sequence durationInFrames={seconds(4.3)}>
                 <MouthMotion
-                  conversation={ConversationType.shout_2}
+                  conversation={ConversationType.speak_1}
                   state={dannyState}
                 />
                 <HeadMotion
@@ -380,6 +464,48 @@ export const Scene2: React.FC = () => {
                   movementType={MovementType.normal_2}
                   state={dannyState}
                 />
+              </Series.Sequence>
+            </Series>
+
+            <Series>
+              <Series.Sequence durationInFrames={seconds(7.5)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(1.8)}>
+                <EyesMotion
+                  angle={310}
+                  state={dannyState}
+                  eyes={EyeType.open}
+                />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(6.5)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(11)}>
+                <EyesMotion
+                  angle={310}
+                  state={dannyState}
+                  eyes={EyeType.open}
+                />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(0.5)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(11)}>
+                <EyesMotion
+                  angle={180}
+                  state={dannyState}
+                  eyes={EyeType.open}
+                />
+              </Series.Sequence>
+            </Series>
+
+            <Series>
+              <Series.Sequence durationInFrames={seconds(33)}>
+                <span />
+              </Series.Sequence>
+              <Series.Sequence durationInFrames={seconds(47)}>
+                <EyeBrowMotion eyeBrow={EyeBrowType.angry} state={dannyState} />
               </Series.Sequence>
             </Series>
           </Sequence>
@@ -436,7 +562,7 @@ export const Scene2: React.FC = () => {
               <Series.Sequence durationInFrames={seconds(0.3)}>
                 <span />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(1.7)}>
+              <Series.Sequence durationInFrames={seconds(2.2)}>
                 <MouthMotion
                   conversation={ConversationType.speak_1}
                   state={idefixState}
@@ -446,12 +572,12 @@ export const Scene2: React.FC = () => {
                   state={idefixState}
                 />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(10)}>
+              <Series.Sequence durationInFrames={seconds(11.5)}>
                 <span />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(3)}>
+              <Series.Sequence durationInFrames={seconds(2.8)}>
                 <MouthMotion
-                  conversation={ConversationType.speak_1}
+                  conversation={ConversationType.shout_1}
                   state={idefixState}
                 />
                 <HeadMotion
@@ -462,9 +588,9 @@ export const Scene2: React.FC = () => {
               <Series.Sequence durationInFrames={seconds(0.3)}>
                 <span />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(2.3)}>
+              <Series.Sequence durationInFrames={seconds(2.7)}>
                 <MouthMotion
-                  conversation={ConversationType.speak_1}
+                  conversation={ConversationType.shout_1}
                   state={idefixState}
                 />
                 <HeadMotion
@@ -472,11 +598,11 @@ export const Scene2: React.FC = () => {
                   state={idefixState}
                 />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(3.2)}>
+              <Series.Sequence durationInFrames={seconds(2)}>
                 <span />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(0.5)}>
-                <MouthMotion mouth={MouthType.open_3} state={idefixState} />
+              <Series.Sequence durationInFrames={seconds(0.3)}>
+                <MouthMotion mouth={MouthType.open_1} state={idefixState} />
                 <HeadMotion
                   movementType={MovementType.normal_2}
                   state={idefixState}
@@ -521,7 +647,7 @@ export const Scene2: React.FC = () => {
             </Series>
 
             <Series>
-              <Series.Sequence durationInFrames={seconds(5)}>
+              <Series.Sequence durationInFrames={seconds(5.2)}>
                 <span />
               </Series.Sequence>
               <Series.Sequence durationInFrames={seconds(0.5)}>
@@ -576,7 +702,7 @@ export const Scene2: React.FC = () => {
           from={seconds(20.5)}
           durationInFrames={seconds(3)}
         >
-          <Danny characterState={idefixState} />
+          <Idefix characterState={idefixState} />
         </Sequence>
 
         <Sequence
@@ -612,7 +738,7 @@ export const Scene2: React.FC = () => {
           from={seconds(23.5)}
           durationInFrames={seconds(2)}
         >
-          <Danny characterState={idefixState} />
+          <Idefix characterState={idefixState} />
         </Sequence>
 
         <Sequence
@@ -662,20 +788,20 @@ export const Scene2: React.FC = () => {
       </AbsoluteFill>
 
       <Sequence name="Character Composition">
+        <Sequence name="Idefix" from={seconds(25.5)}>
+          <Idefix characterState={idefixState} />
+        </Sequence>
+
+        <Sequence name="Danny" from={seconds(26.5)}>
+          <Danny characterState={dannyState} />
+        </Sequence>
+
         <Sequence
           name="Shaby"
           from={seconds(16.5)}
           durationInFrames={seconds(13.5)}
         >
           <Shaby characterState={shabyState} />
-        </Sequence>
-
-        <Sequence name="Idefix" from={seconds(25.5)}>
-          <Danny characterState={idefixState} />
-        </Sequence>
-
-        <Sequence name="Danny" from={seconds(26.5)}>
-          <Danny characterState={dannyState} />
         </Sequence>
 
         <Sequence
@@ -689,6 +815,10 @@ export const Scene2: React.FC = () => {
         <Sequence name="Alex" from={seconds(29.5)}>
           <Alex characterState={alexState} />
         </Sequence>
+      </Sequence>
+
+      <Sequence from={seconds(56)}>
+        <Audio src={staticFile("sounds/idefix-woof.mp3")} />
       </Sequence>
     </>
   );

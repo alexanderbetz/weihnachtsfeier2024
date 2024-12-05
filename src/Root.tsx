@@ -27,7 +27,7 @@ export const RemotionRoot: React.FC = () => {
         durationInFrames={
           seconds(10) +
           seconds(24) +
-          seconds(56) +
+          seconds(58) +
           seconds(126) +
           seconds(134) +
           seconds(63) +
@@ -64,7 +64,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Szene-2-Buero-Eingang"
         component={Scene2}
-        durationInFrames={fps * 56}
+        durationInFrames={seconds(58)}
         fps={fps}
         width={width}
         height={height}
