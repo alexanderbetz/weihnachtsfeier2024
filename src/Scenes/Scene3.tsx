@@ -24,6 +24,7 @@ import { MouthType } from "../Character/Base/Mouth";
 import { EyesMotion } from "../Motion/EyesMotion";
 import { EyeType } from "../Character/Base/Eyes";
 import { HeadMotion, MovementType } from "../Motion/HeadMotion";
+import { Wiggle } from "../Motion/Wiggle";
 
 export const Scene3: React.FC = () => {
   const frame = useCurrentFrame();
@@ -31,27 +32,23 @@ export const Scene3: React.FC = () => {
   const shabyState = useRef<CharacterState>(getDefaultCharacterState());
   const wagenbreinState = useRef<CharacterState>(getDefaultCharacterState());
   const staniState = useRef<CharacterState>(getDefaultCharacterState());
-  const klausState = useRef<CharacterState>(getDefaultCharacterState());
+  const rickState = useRef<CharacterState>(getDefaultCharacterState());
   const ottoState = useRef<CharacterState>(getDefaultCharacterState());
   const postlerState = useRef<CharacterState>(getDefaultCharacterState());
   const elisabethState = useRef<CharacterState>(getDefaultCharacterState());
+  const klausState = useRef<CharacterState>(getDefaultCharacterState());
 
   shabyState.current = getDefaultCharacterState();
   wagenbreinState.current = getDefaultCharacterState();
   staniState.current = getDefaultCharacterState();
-  klausState.current = getDefaultCharacterState();
+  rickState.current = getDefaultCharacterState();
   ottoState.current = getDefaultCharacterState();
   postlerState.current = getDefaultCharacterState();
   elisabethState.current = getDefaultCharacterState();
+  klausState.current = getDefaultCharacterState();
 
   return (
     <>
-      <AbsoluteFill>
-        <ScalableImg src={staticFile("locations/dev-scene.png")} />
-      </AbsoluteFill>
-      <AbsoluteFill>
-        <ScalableImg src={staticFile("locations/dev-scene-stuff.png")} />
-      </AbsoluteFill>
       <Audio src={staticFile("jingles/jingle-1.mp3")} />
 
       <Sequence name="Audio" from={seconds(3)}>
@@ -69,15 +66,11 @@ export const Scene3: React.FC = () => {
           <Stand at={{ x: 400, y: -100 }} state={wagenbreinState} />
 
           <Series>
-            <Series.Sequence durationInFrames={seconds(3.3)}>
+            <Series.Sequence durationInFrames={seconds(3.2)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(0.5)}>
-              <Walk
-                start={{ x: 400, y: -100 }}
-                end={{ x: 400, y: -100 }}
-                state={wagenbreinState}
-              />
+              <Wiggle state={wagenbreinState} />
             </Series.Sequence>
           </Series>
         </Sequence>
@@ -243,23 +236,115 @@ export const Scene3: React.FC = () => {
             </Series.Sequence>
           </Series>
         </Sequence>
+
+        <Sequence name="Rick Controller">
+          <Scale start={0.4} state={rickState} />
+          <Stand at={{ x: -800, y: -300 }} state={rickState} />
+        </Sequence>
+
+        <Sequence name="Otto Controller">
+          <BlinkMotion state={ottoState} interval={seconds(2.2)} />
+          <Scale start={0.4} state={ottoState} />
+          <Stand at={{ x: -700, y: -100 }} state={ottoState} />
+        </Sequence>
+
+        <Sequence name="Shaby Controller">
+          <BlinkMotion state={shabyState} interval={seconds(2.4)} />
+          <Scale start={0.4} state={shabyState} />
+          <Stand at={{ x: -500, y: -100 }} state={shabyState} />
+        </Sequence>
+
+        <Sequence name="Stani Controller">
+          <BlinkMotion state={staniState} interval={seconds(2.5)} />
+          <Scale start={0.35} state={staniState} />
+          <Stand at={{ x: -350, y: -350 }} state={staniState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(6.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <Wiggle state={staniState} />
+            </Series.Sequence>
+          </Series>
+        </Sequence>
+
+        <Sequence name="Klaus Controller">
+          <BlinkMotion state={klausState} interval={seconds(2.6)} />
+          <Scale start={0.35} state={klausState} />
+          <Stand at={{ x: 500, y: -540 }} state={klausState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(51.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <Wiggle state={klausState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(11.6)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.3)}>
+              <MouthMotion
+                state={klausState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion state={klausState} mouth={MouthType.open_teeth_tongue_2} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <MouthMotion
+                state={klausState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+          </Series>
+        </Sequence>
       </Sequence>
 
       <Sequence name="Character Composition">
-        <Sequence name="Shaby">
-          <Shaby characterState={shabyState} />
-        </Sequence>
+        <AbsoluteFill>
+          <ScalableImg src={staticFile("locations/dev-scene.png")} />
+        </AbsoluteFill>
 
-        <Sequence name="Wagenbrein">
-          <Wagenbrein characterState={wagenbreinState} />
+        <Sequence name="Rick">
+          <Klaus characterState={rickState} />
         </Sequence>
 
         <Sequence name="Stani">
           <Klaus characterState={staniState} />
         </Sequence>
 
-        <Sequence name="Klaus anstatt Rick">
+        <Sequence name="Klaus">
           <Klaus characterState={klausState} />
+        </Sequence>
+
+        <AbsoluteFill>
+          <ScalableImg src={staticFile("locations/dev-scene-stuff.png")} />
+        </AbsoluteFill>
+
+        <Sequence name="Shaby">
+          <Shaby characterState={shabyState} />
+        </Sequence>
+
+        <Sequence name="Wagenbrein">
+          <Wagenbrein characterState={wagenbreinState} />
         </Sequence>
 
         <Sequence name="Otto">

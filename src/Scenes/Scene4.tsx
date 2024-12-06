@@ -18,6 +18,7 @@ import { ChatGpt } from "../Character/ChatGpt";
 import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
 import { EyeBrowType } from "../Character/Base/EyeBrows";
 import { Shaby } from "../Character/Shaby";
+import { Wiggle } from "../Motion/Wiggle";
 
 export const Scene4: React.FC = () => {
   const _ = useCurrentFrame();
@@ -879,6 +880,15 @@ export const Scene4: React.FC = () => {
               />
             </Series.Sequence>
           </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(54.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.9)}>
+              <Wiggle state={klausCharacterState} />
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="ChatGPT Controller">
@@ -890,41 +900,25 @@ export const Scene4: React.FC = () => {
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(0.6)}>
-              <Walk
-                start={{ x: -212, y: -725 }}
-                end={{ x: -212, y: -725 }}
-                state={chatGptState}
-              />
+              <Wiggle state={chatGptState} />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(4)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(3)}>
-              <Walk
-                start={{ x: -212, y: -725 }}
-                end={{ x: -212, y: -725 }}
-                state={chatGptState}
-              />
+              <Wiggle state={chatGptState} />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(7.8)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(2.8)}>
-              <Walk
-                start={{ x: -212, y: -725 }}
-                end={{ x: -212, y: -725 }}
-                state={chatGptState}
-              />
+              <Wiggle state={chatGptState} />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(2.5)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(16.4)}>
-              <Walk
-                start={{ x: -212, y: -725 }}
-                end={{ x: -212, y: -725 }}
-                state={chatGptState}
-              />
+              <Wiggle state={chatGptState} />
             </Series.Sequence>
           </Series>
         </Sequence>
