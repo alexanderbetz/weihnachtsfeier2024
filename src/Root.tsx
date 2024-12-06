@@ -13,6 +13,7 @@ import { Scene5 } from "./Scenes/Scene5";
 import { Scene3 } from "./Scenes/Scene3";
 import { Credits } from "./Scenes/Credits";
 import { Scene6 } from "./Scenes/Scene6";
+import { Scene10 } from "./Scenes/Scene10";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -37,8 +38,8 @@ export const RemotionRoot: React.FC = () => {
           seconds(64) +
           seconds(108) +
           seconds(99) +
-          seconds(56) +
-          seconds(27)
+          seconds(10) +
+          seconds(30)
         }
         fps={fps}
         width={width}
@@ -137,8 +138,8 @@ export const RemotionRoot: React.FC = () => {
 
       <Composition
         id="Szene-10-Real-Life"
-        component={Scene2}
-        durationInFrames={fps * 56}
+        component={Scene10}
+        durationInFrames={seconds(10)}
         fps={fps}
         width={width}
         height={height}

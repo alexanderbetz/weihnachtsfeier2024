@@ -1,4 +1,11 @@
-import { Audio, Sequence, Series, staticFile, useCurrentFrame } from "remotion";
+import {
+  AbsoluteFill,
+  Audio,
+  Sequence,
+  Series,
+  staticFile,
+  useCurrentFrame,
+} from "remotion";
 import { useRef } from "react";
 import { CharacterState, getDefaultCharacterState } from "../Character/Base";
 import { Walk } from "../Motion/Walk";
@@ -41,7 +48,12 @@ export const Scene4: React.FC = () => {
 
   return (
     <>
-      <ScalableImg src={staticFile("locations/polaroids.png")} />
+      <AbsoluteFill>
+        <ScalableImg src={staticFile("locations/polaroids.png")} />
+      </AbsoluteFill>
+      <AbsoluteFill>
+        <ScalableImg src={staticFile("locations/polaroids-front.png")} />
+      </AbsoluteFill>
       <Audio src={staticFile("jingles/jingle-3.mp3")} />
 
       <Sequence from={seconds(4)}>

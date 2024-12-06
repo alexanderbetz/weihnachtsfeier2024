@@ -24,6 +24,10 @@ import { Shaby } from "../Character/Shaby";
 import { Margaretha } from "../Character/Margaretha";
 import { Danny } from "../Character/Danny";
 import { Wiggle } from "../Motion/Wiggle";
+import { Alex } from "../Character/Alex";
+import { Wagenbrein } from "../Character/Wagenbrein";
+import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
+import { EyeBrowType } from "../Character/Base/EyeBrows";
 
 export const Scene6: React.FC = () => {
   const frame = useCurrentFrame();
@@ -31,10 +35,16 @@ export const Scene6: React.FC = () => {
   const staniState = useRef<CharacterState>(getDefaultCharacterState());
   const margaretaState = useRef<CharacterState>(getDefaultCharacterState());
   const dannyState = useRef<CharacterState>(getDefaultCharacterState());
+  const alexState = useRef<CharacterState>(getDefaultCharacterState());
+  const wagenbreinState = useRef<CharacterState>(getDefaultCharacterState());
+  const ottoState = useRef<CharacterState>(getDefaultCharacterState());
   shabyState.current = getDefaultCharacterState();
   staniState.current = getDefaultCharacterState();
   margaretaState.current = getDefaultCharacterState();
   dannyState.current = getDefaultCharacterState();
+  alexState.current = getDefaultCharacterState();
+  wagenbreinState.current = getDefaultCharacterState();
+  ottoState.current = getDefaultCharacterState();
 
   return (
     <>
@@ -51,12 +61,21 @@ export const Scene6: React.FC = () => {
         <BlinkMotion state={staniState} interval={seconds(2.6)} />
         <BlinkMotion state={dannyState} interval={seconds(3)} />
         <BlinkMotion state={margaretaState} interval={seconds(2.2)} />
+        <BlinkMotion state={alexState} interval={seconds(2.2)} />
+        <BlinkMotion state={wagenbreinState} interval={seconds(3.2)} />
+        <BlinkMotion state={ottoState} interval={seconds(3.1)} />
         <Scale start={0.35} state={shabyState} />
         <Scale start={0.4} state={staniState} />
-        <Scale start={0.4} state={dannyState} />
         <Scale start={0.5} state={margaretaState} />
+        <Scale start={0.4} state={dannyState} />
+        <Scale start={0.35} state={alexState} />
+        <Scale start={0.4} state={wagenbreinState} />
+        <Scale start={0.4} state={ottoState} />
         <Stand at={{ x: 120, y: -350 }} state={shabyState} />
-        <Stand at={{ x: -580, y: -150 }} state={staniState} />
+        <Stand at={{ x: -550, y: -150 }} state={staniState} />
+        <Stand at={{ x: -800, y: -120 }} state={ottoState} />
+        <Stand at={{ x: -500, y: -450 }} state={alexState} />
+        <Stand at={{ x: 600, y: -150 }} state={wagenbreinState} />
 
         <Sequence name="Shaby">
           <Series>
@@ -161,6 +180,9 @@ export const Scene6: React.FC = () => {
                 state={shabyState}
               />
             </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(15)}>
+              <MouthMotion mouth={MouthType.unhappy} state={shabyState} />
+            </Series.Sequence>
           </Series>
 
           <Series>
@@ -180,11 +202,35 @@ export const Scene6: React.FC = () => {
               <EyesMotion eyes={EyeType.open} angle={230} state={shabyState} />
             </Series.Sequence>
           </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(7.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(7.5)}>
+              <EyeBrowMotion eyeBrow={EyeBrowType.angry} state={shabyState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(13.9)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <Wiggle state={shabyState} />
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="Stani">
           <Series>
-            <Series.Sequence durationInFrames={seconds(5.3)}>
+            <Series.Sequence durationInFrames={seconds(4.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <MouthMotion mouth={MouthType.open_1} state={staniState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.7)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(0.8)}>
@@ -209,6 +255,15 @@ export const Scene6: React.FC = () => {
                 movementType={MovementType.normal_1}
                 state={staniState}
               />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(4.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.4)}>
+              <Wiggle state={staniState} />
             </Series.Sequence>
           </Series>
         </Sequence>
@@ -481,6 +536,18 @@ export const Scene6: React.FC = () => {
             </Series.Sequence>
           </Series>
         </Sequence>
+
+        <Sequence name="Otto">
+          <Series>
+            <Series.Sequence durationInFrames={seconds(10.2)}>
+              <span />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(0.4)}>
+              <Wiggle state={ottoState} />
+            </Series.Sequence>
+          </Series>
+        </Sequence>
       </Sequence>
 
       <Sequence name="Character Composition">
@@ -488,12 +555,28 @@ export const Scene6: React.FC = () => {
           <Shaby characterState={shabyState} />
         </Sequence>
 
+        <Sequence name="Alex">
+          <Alex characterState={alexState} />
+        </Sequence>
+
+        <Sequence name="Wagenbrein">
+          <Wagenbrein characterState={wagenbreinState} />
+        </Sequence>
+
         <AbsoluteFill>
           <ScalableImg src={staticFile("locations/dev-scene-stuff.png")} />
         </AbsoluteFill>
 
+        <Sequence name="Wagenbrein">
+          <Wagenbrein characterState={wagenbreinState} />
+        </Sequence>
+
         <Sequence name="Stani">
           <Shaby characterState={staniState} />
+        </Sequence>
+
+        <Sequence name="Otto">
+          <Shaby characterState={ottoState} />
         </Sequence>
 
         <Sequence name="Danny" from={seconds(30)}>
