@@ -1,11 +1,4 @@
-import {
-  AbsoluteFill,
-  Audio,
-  Sequence,
-  Series,
-  staticFile,
-  useCurrentFrame,
-} from "remotion";
+import { AbsoluteFill, Audio, Sequence, Series, staticFile, useCurrentFrame } from "remotion";
 import { ScalableImg } from "../Components/ScalableImg";
 import { seconds } from "../util/timing";
 import { Shaby } from "../Character/Shaby";
@@ -26,6 +19,8 @@ import { EyeType } from "../Character/Base/Eyes";
 import { HeadMotion, MovementType } from "../Motion/HeadMotion";
 import { Wiggle } from "../Motion/Wiggle";
 import { Alex } from "../Character/Alex";
+import { Hannes } from "../Character/Hannes";
+import { Danny } from "../Character/Danny";
 
 export const Scene3: React.FC = () => {
   const frame = useCurrentFrame();
@@ -39,6 +34,9 @@ export const Scene3: React.FC = () => {
   const elisabethState = useRef<CharacterState>(getDefaultCharacterState());
   const klausState = useRef<CharacterState>(getDefaultCharacterState());
   const alexState = useRef<CharacterState>(getDefaultCharacterState());
+  const hannesState = useRef<CharacterState>(getDefaultCharacterState());
+  const vlaState = useRef<CharacterState>(getDefaultCharacterState());
+  const dannyState = useRef<CharacterState>(getDefaultCharacterState());
 
   shabyState.current = getDefaultCharacterState();
   wagenbreinState.current = getDefaultCharacterState();
@@ -49,6 +47,9 @@ export const Scene3: React.FC = () => {
   elisabethState.current = getDefaultCharacterState();
   klausState.current = getDefaultCharacterState();
   alexState.current = getDefaultCharacterState();
+  hannesState.current = getDefaultCharacterState();
+  vlaState.current = getDefaultCharacterState();
+  dannyState.current = getDefaultCharacterState();
 
   return (
     <>
@@ -459,20 +460,14 @@ export const Scene3: React.FC = () => {
               />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(2)}>
-              <MouthMotion
-                state={ottoState}
-                mouth={MouthType.open_teeth_4}
-              />
+              <MouthMotion state={ottoState} mouth={MouthType.open_teeth_4} />
               <HeadMotion
                 movementType={MovementType.normal_1}
                 state={ottoState}
               />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(2)}>
-              <MouthMotion
-                state={ottoState}
-                mouth={MouthType.open_teeth_7}
-              />
+              <MouthMotion state={ottoState} mouth={MouthType.open_teeth_7} />
               <HeadMotion
                 movementType={MovementType.normal_1}
                 state={ottoState}
@@ -1170,6 +1165,223 @@ export const Scene3: React.FC = () => {
             </Series.Sequence>
           </Series>
         </Sequence>
+
+        <Sequence name="Hannes Controller">
+          <Scale start={0.75} state={hannesState} />
+          <Stand at={{ x: -1300, y: 0 }} state={hannesState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(68)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4)}>
+              <Wiggle state={hannesState} />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(15.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(12)}>
+              <Wiggle state={hannesState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(66)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.5)}>
+              <Walk
+                start={{ x: -1300, y: 0 }}
+                end={{ x: -850, y: 0 }}
+                state={hannesState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(60)}>
+              <Stand at={{ x: -850, y: 0 }} state={hannesState} />
+            </Series.Sequence>
+          </Series>
+        </Sequence>
+
+        <Sequence name="Vla Controller">
+          <Stand state={vlaState} at={{ x: -250, y: 400 }} />
+          <Scale start={0.6} state={vlaState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(97.5)}>
+              <Stand at={{ x: -250, y: 900 }} state={vlaState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <Walk
+                start={{ x: -250, y: 900 }}
+                end={{ x: -250, y: 400 }}
+                state={vlaState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(23)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.5)}>
+              <Walk
+                start={{ x: -250, y: 400 }}
+                end={{ x: -250, y: 900 }}
+                state={vlaState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <Stand at={{ x: -250, y: 900 }} state={vlaState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(98.4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.2)}>
+              <MouthMotion
+                state={vlaState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={vlaState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion state={vlaState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={vlaState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion movementType={MovementType.normal_2} state={vlaState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <MouthMotion state={vlaState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={vlaState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion movementType={MovementType.normal_2} state={vlaState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <MouthMotion state={vlaState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={vlaState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion movementType={MovementType.normal_2} state={vlaState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10.8)}>
+              <MouthMotion state={vlaState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(3.2)}>
+            <MouthMotion
+              state={vlaState}
+              conversation={ConversationType.speak_2}
+            />
+            <HeadMotion movementType={MovementType.normal_2} state={vlaState} />
+          </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.6)}>
+              <MouthMotion
+                state={vlaState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion movementType={MovementType.normal_2} state={vlaState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(98.8)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <EyesMotion eyes={EyeType.x} state={vlaState} />
+            </Series.Sequence>
+          </Series>
+        </Sequence>
+
+        <Sequence name="Danny Controller">
+          <Stand state={dannyState} at={{ x: 150, y: 450 }} />
+          <Scale start={0.6} state={dannyState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(104.5)}>
+              <Stand at={{ x: 150, y: 900 }} state={dannyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <Walk
+                start={{ x: 150, y: 900 }}
+                end={{ x: 150, y: 450 }}
+                state={dannyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(14)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <Walk
+                start={{ x: 150, y: 450 }}
+                end={{ x: 150, y: 900 }}
+                state={dannyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(20)}>
+              <Stand at={{ x: 150, y: 900 }} state={dannyState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(106.6)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <MouthMotion state={dannyState} conversation={ConversationType.speak_2} />
+              <HeadMotion movementType={MovementType.normal_3} state={dannyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.5)}>
+              <MouthMotion state={dannyState} conversation={ConversationType.speak_2} />
+              <HeadMotion movementType={MovementType.normal_3} state={dannyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={dannyState} conversation={ConversationType.speak_2} />
+              <HeadMotion movementType={MovementType.normal_3} state={dannyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.6)}>
+              <MouthMotion state={dannyState} conversation={ConversationType.shout_2} />
+              <HeadMotion movementType={MovementType.normal_3} state={dannyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={dannyState} conversation={ConversationType.speak_2} />
+              <HeadMotion movementType={MovementType.normal_3} state={dannyState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.6)}>
+              <MouthMotion state={dannyState} conversation={ConversationType.speak_2} />
+              <HeadMotion movementType={MovementType.normal_3} state={dannyState} />
+            </Series.Sequence>
+          </Series>
+        </Sequence>
       </Sequence>
 
       <Sequence name="Character Composition">
@@ -1177,12 +1389,12 @@ export const Scene3: React.FC = () => {
           <ScalableImg src={staticFile("locations/dev-scene.png")} />
         </AbsoluteFill>
 
-        <Sequence name="Rick">
-          <Klaus characterState={rickState} />
-        </Sequence>
-
         <Sequence name="Stani">
           <Klaus characterState={staniState} />
+        </Sequence>
+
+        <Sequence name="Rick">
+          <Klaus characterState={rickState} />
         </Sequence>
 
         <Sequence name="Klaus">
@@ -1215,6 +1427,18 @@ export const Scene3: React.FC = () => {
 
         <Sequence name="Elisabeth">
           <Elisabeth characterState={elisabethState} />
+        </Sequence>
+
+        <Sequence name="Hannes">
+          <Hannes characterState={hannesState} />
+        </Sequence>
+
+        <Sequence name="Vla">
+          <Danny characterState={vlaState} />
+        </Sequence>
+
+        <Sequence name="Danny">
+          <Danny characterState={dannyState} />
         </Sequence>
       </Sequence>
     </>
