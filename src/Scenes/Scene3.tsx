@@ -21,6 +21,8 @@ import { Wiggle } from "../Motion/Wiggle";
 import { Alex } from "../Character/Alex";
 import { Hannes } from "../Character/Hannes";
 import { Danny } from "../Character/Danny";
+import { Otto } from "../Character/Otto";
+import { Stani } from "../Character/Stani";
 
 export const Scene3: React.FC = () => {
   const frame = useCurrentFrame();
@@ -720,8 +722,8 @@ export const Scene3: React.FC = () => {
 
         <Sequence name="Stani Controller">
           <BlinkMotion state={staniState} interval={seconds(2.5)} />
-          <Scale start={0.35} state={staniState} />
-          <Stand at={{ x: -350, y: -350 }} state={staniState} />
+          <Scale start={0.3} state={staniState} />
+          <Stand at={{ x: -350, y: -300 }} state={staniState} />
 
           <Series>
             <Series.Sequence durationInFrames={seconds(6.2)}>
@@ -1390,7 +1392,7 @@ export const Scene3: React.FC = () => {
         </AbsoluteFill>
 
         <Sequence name="Stani">
-          <Klaus characterState={staniState} />
+          <Stani characterState={staniState} />
         </Sequence>
 
         <Sequence name="Rick">
@@ -1414,7 +1416,7 @@ export const Scene3: React.FC = () => {
         </Sequence>
 
         <Sequence name="Otto">
-          <Klaus characterState={ottoState} />
+          <Otto characterState={ottoState} />
         </Sequence>
 
         <Sequence name="Alex">
