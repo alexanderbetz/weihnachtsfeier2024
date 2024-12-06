@@ -246,16 +246,6 @@ export const Scene2: React.FC = () => {
               <Series.Sequence durationInFrames={seconds(1.1)}>
                 <span />
               </Series.Sequence>
-              <Series.Sequence durationInFrames={seconds(0.6)} name="Rick Talk">
-                <MouthMotion
-                  conversation={ConversationType.speak_1}
-                  state={rickState}
-                />
-                <HeadMotion
-                  state={rickState}
-                  movementType={MovementType.normal_1}
-                />
-              </Series.Sequence>
             </Series>
 
             <Series>

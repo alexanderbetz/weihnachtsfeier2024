@@ -68,7 +68,7 @@ export const Scene7: React.FC = () => {
 
   return (
     <>
-      <ScalableImg src={staticFile("locations/wc.png")} />
+      <ScalableImg src={staticFile("locations/toilet.png")} />
 
       <Sequence from={seconds(2)}>
         <Audio

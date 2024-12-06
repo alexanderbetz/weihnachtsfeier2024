@@ -54,6 +54,39 @@ export const Scene4: React.FC = () => {
       <AbsoluteFill>
         <ScalableImg src={staticFile("locations/polaroids-front.png")} />
       </AbsoluteFill>
+      <AbsoluteFill
+        style={{ transform: "scale(0.06)", left: "-380px", top: "-360px" }}
+      >
+        <ScalableImg src={staticFile("locations/polaroid_1.jpg")} />
+      </AbsoluteFill>
+      <AbsoluteFill
+        style={{ transform: "scale(0.06)", left: "-395px", top: "-80px" }}
+      >
+        <ScalableImg src={staticFile("locations/polaroid_2.jpg")} />
+      </AbsoluteFill>
+      <AbsoluteFill
+        style={{
+          transform: "scale(0.06) rotate(3deg)",
+          left: "-230px",
+          top: "-85px",
+        }}
+      >
+        <ScalableImg src={staticFile("locations/polaroid_3.jpg")} />
+      </AbsoluteFill>
+      <AbsoluteFill
+        style={{
+          transform: "scale(0.06) rotate(-3deg)",
+          left: "-60px",
+          top: "-80px",
+        }}
+      >
+        <ScalableImg src={staticFile("locations/polaroid_4.jpg")} />
+      </AbsoluteFill>
+      <AbsoluteFill
+        style={{ transform: "scale(0.06)", left: "-45px", top: "-350px" }}
+      >
+        <ScalableImg src={staticFile("locations/polaroid_5.jpg")} />
+      </AbsoluteFill>
       <Audio src={staticFile("jingles/jingle-3.mp3")} />
 
       <Sequence from={seconds(4)}>
