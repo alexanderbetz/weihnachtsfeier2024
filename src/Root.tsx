@@ -39,7 +39,7 @@ export const RemotionRoot: React.FC = () => {
           seconds(108) +
           seconds(99) +
           seconds(10) +
-          seconds(30)
+          seconds(28)
         }
         fps={fps}
         width={width}
@@ -148,7 +148,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Szene-11-Credits"
         component={Credits}
-        durationInFrames={seconds(27)}
+        durationInFrames={seconds(28)}
         fps={fps}
         width={width}
         height={height}

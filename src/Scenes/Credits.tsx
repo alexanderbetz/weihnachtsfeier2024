@@ -53,25 +53,34 @@ export const Credits: React.FC = () => {
               }}
             >
               <div className="h-[200px]" />
-              <CreditEntry
-                title="LoC (Lines of Code)"
-                text="find . -name '*.ts*' | xargs wc -l"
-              />
-              <CreditEntry
-                title="Waren Kundenprojekte für die Erstellung dieses Videos beeinträchtigt?"
-                text="Keine Auskunft"
-              />
+              <p className="text-[50px] !my-0">
+                Dekcweiss Weihnachtsfeier 2024
+              </p>
+              <p className="opacity-70 !my-0">Alex, Klaus und Shaby</p>
+              <CreditEntry title="LoC (Lines of Code)" text="> 8500" />
               <CreditEntry
                 title="Waren Kundenprojekte für die Erstellung dieses Videos beeinträchtigt?"
                 text="Keine Auskunft"
               />
               <CreditEntry
-                title="Waren Kundenprojekte für die Erstellung dieses Videos beeinträchtigt?"
-                text="Keine Auskunft"
+                title="Anzahl der Fürze im Video?"
+                text="Zähl selber..."
               />
               <CreditEntry
-                title="Waren Kundenprojekte für die Erstellung dieses Videos beeinträchtigt?"
-                text="Keine Auskunft"
+                title="Anzahl der Fürze während der Erstellung dieses Videos?"
+                text="Noch ist keiner Erstunken"
+              />
+              <CreditEntry
+                title="Fun Fact"
+                text="Die Sonde ist eine verzerrte Version Wagenbreins Stimme"
+              />
+              <CreditEntry
+                title="Falsche Pakete zugestellt"
+                text="Babsi fragen"
+              />
+              <CreditEntry
+                title="GitHub Repo"
+                text="https://github.com/alexanderbetz/weihnachtsfeier2024"
               />
             </div>
 

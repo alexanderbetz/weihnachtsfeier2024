@@ -28,6 +28,8 @@ import { Alex } from "../Character/Alex";
 import { Wagenbrein } from "../Character/Wagenbrein";
 import { EyeBrowMotion } from "../Motion/EyeBrowMotion";
 import { EyeBrowType } from "../Character/Base/EyeBrows";
+import { Stani } from "../Character/Stani";
+import { Otto } from "../Character/Otto";
 
 export const Scene6: React.FC = () => {
   const frame = useCurrentFrame();
@@ -65,14 +67,14 @@ export const Scene6: React.FC = () => {
         <BlinkMotion state={wagenbreinState} interval={seconds(3.2)} />
         <BlinkMotion state={ottoState} interval={seconds(3.1)} />
         <Scale start={0.35} state={shabyState} />
-        <Scale start={0.4} state={staniState} />
+        <Scale start={0.35} state={staniState} />
         <Scale start={0.5} state={margaretaState} />
         <Scale start={0.4} state={dannyState} />
         <Scale start={0.35} state={alexState} />
         <Scale start={0.4} state={wagenbreinState} />
         <Scale start={0.4} state={ottoState} />
         <Stand at={{ x: 120, y: -350 }} state={shabyState} />
-        <Stand at={{ x: -550, y: -150 }} state={staniState} />
+        <Stand at={{ x: -550, y: -100 }} state={staniState} />
         <Stand at={{ x: -800, y: -120 }} state={ottoState} />
         <Stand at={{ x: -500, y: -450 }} state={alexState} />
         <Stand at={{ x: 600, y: -150 }} state={wagenbreinState} />
@@ -572,11 +574,11 @@ export const Scene6: React.FC = () => {
         </Sequence>
 
         <Sequence name="Stani">
-          <Shaby characterState={staniState} />
+          <Stani characterState={staniState} />
         </Sequence>
 
         <Sequence name="Otto">
-          <Shaby characterState={ottoState} />
+          <Otto characterState={ottoState} />
         </Sequence>
 
         <Sequence name="Danny" from={seconds(30)}>
