@@ -11,6 +11,8 @@ import { Scene7 } from "./Scenes/Scene7";
 import { Disclaimer } from "./Scenes/Disclaimer";
 import { Scene5 } from "./Scenes/Scene5";
 import { Scene3 } from "./Scenes/Scene3";
+import { Credits } from "./Scenes/Credits";
+import { Scene6 } from "./Scenes/Scene6";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -31,12 +33,12 @@ export const RemotionRoot: React.FC = () => {
           seconds(126) +
           seconds(134) +
           seconds(63) +
-          seconds(56) +
+          seconds(49) +
           seconds(64) +
           seconds(108) +
           seconds(99) +
           seconds(56) +
-          seconds(56)
+          seconds(27)
         }
         fps={fps}
         width={width}
@@ -99,8 +101,8 @@ export const RemotionRoot: React.FC = () => {
 
       <Composition
         id="Szene-6-Dev-Bereich"
-        component={Scene2}
-        durationInFrames={fps * 56}
+        component={Scene6}
+        durationInFrames={seconds(49)}
         fps={fps}
         width={width}
         height={height}
@@ -144,8 +146,8 @@ export const RemotionRoot: React.FC = () => {
 
       <Composition
         id="Szene-11-Credits"
-        component={Scene2}
-        durationInFrames={fps * 56}
+        component={Credits}
+        durationInFrames={seconds(27)}
         fps={fps}
         width={width}
         height={height}
