@@ -25,6 +25,7 @@ import { EyesMotion } from "../Motion/EyesMotion";
 import { EyeType } from "../Character/Base/Eyes";
 import { HeadMotion, MovementType } from "../Motion/HeadMotion";
 import { Wiggle } from "../Motion/Wiggle";
+import { Alex } from "../Character/Alex";
 
 export const Scene3: React.FC = () => {
   const frame = useCurrentFrame();
@@ -37,6 +38,7 @@ export const Scene3: React.FC = () => {
   const postlerState = useRef<CharacterState>(getDefaultCharacterState());
   const elisabethState = useRef<CharacterState>(getDefaultCharacterState());
   const klausState = useRef<CharacterState>(getDefaultCharacterState());
+  const alexState = useRef<CharacterState>(getDefaultCharacterState());
 
   shabyState.current = getDefaultCharacterState();
   wagenbreinState.current = getDefaultCharacterState();
@@ -46,6 +48,7 @@ export const Scene3: React.FC = () => {
   postlerState.current = getDefaultCharacterState();
   elisabethState.current = getDefaultCharacterState();
   klausState.current = getDefaultCharacterState();
+  alexState.current = getDefaultCharacterState();
 
   return (
     <>
@@ -71,6 +74,123 @@ export const Scene3: React.FC = () => {
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(0.5)}>
               <Wiggle state={wagenbreinState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(50.8)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.3)}>
+              <Wiggle state={wagenbreinState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={wagenbreinState}
+                conversation={ConversationType.speak_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(14.8)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.7)}>
+              <MouthMotion
+                state={wagenbreinState}
+                conversation={ConversationType.speak_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(29.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.6)}>
+              <MouthMotion
+                state={wagenbreinState}
+                conversation={ConversationType.speak_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.3)}>
+              <MouthMotion state={wagenbreinState} mouth={MouthType.open_3} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(32)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={wagenbreinState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={wagenbreinState}
+                mouth={MouthType.open_teeth_4}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={wagenbreinState}
+                mouth={MouthType.open_teeth_7}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={wagenbreinState}
+                mouth={MouthType.open_teeth_tongue_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={wagenbreinState} mouth={MouthType.open_3} />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={wagenbreinState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={wagenbreinState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(30)}>
+              <MouthMotion state={wagenbreinState} mouth={MouthType.unhappy} />
             </Series.Sequence>
           </Series>
         </Sequence>
@@ -246,12 +366,361 @@ export const Scene3: React.FC = () => {
           <BlinkMotion state={ottoState} interval={seconds(2.2)} />
           <Scale start={0.4} state={ottoState} />
           <Stand at={{ x: -700, y: -100 }} state={ottoState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(11)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <Wiggle state={ottoState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(37.6)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <Wiggle state={ottoState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(11)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <MouthMotion state={ottoState} mouth={MouthType.open_1} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(16.4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4.9)}>
+              <MouthMotion
+                state={ottoState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.6)}>
+              <MouthMotion
+                state={ottoState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={ottoState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4.5)}>
+              <MouthMotion
+                state={ottoState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(10)}>
+              <MouthMotion state={ottoState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(36)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={ottoState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={ottoState}
+                mouth={MouthType.open_teeth_4}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={ottoState}
+                mouth={MouthType.open_teeth_7}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={ottoState}
+                mouth={MouthType.open_teeth_tongue_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={ottoState} mouth={MouthType.open_3} />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={ottoState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={ottoState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={ottoState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(30)}>
+              <MouthMotion state={ottoState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="Shaby Controller">
           <BlinkMotion state={shabyState} interval={seconds(2.4)} />
           <Scale start={0.4} state={shabyState} />
           <Stand at={{ x: -500, y: -100 }} state={shabyState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(14.8)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <Wiggle state={shabyState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(22)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(18.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(18)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.9)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.7)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(13.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.6)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2.3)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.9)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.5)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.9)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={shabyState}
+                mouth={MouthType.open_teeth_tongue_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={shabyState} mouth={MouthType.open_teeth_6} />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={shabyState} mouth={MouthType.open_teeth_3} />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={shabyState}
+                mouth={MouthType.open_teeth_tongue_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={shabyState} mouth={MouthType.open_teeth_9} />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={shabyState}
+                mouth={MouthType.open_teeth_tongue_3}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(21.5)}>
+              <MouthMotion state={shabyState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.6)}>
+              <MouthMotion
+                state={shabyState}
+                conversation={ConversationType.shout_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={shabyState}
+              />
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="Stani Controller">
@@ -267,6 +736,123 @@ export const Scene3: React.FC = () => {
               <Wiggle state={staniState} />
             </Series.Sequence>
           </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(7.4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.2)}>
+              <MouthMotion
+                state={staniState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.18)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.7)}>
+              <MouthMotion
+                state={staniState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(9.4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <MouthMotion
+                state={staniState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(25.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={staniState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+
+            <Series.Sequence durationInFrames={seconds(39.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion state={staniState} mouth={MouthType.open_teeth_2} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={staniState}
+                mouth={MouthType.open_teeth_tongue_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={staniState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={staniState} mouth={MouthType.open_teeth_4} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={staniState} mouth={MouthType.open_teeth_5} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={staniState} mouth={MouthType.open_teeth_1} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion state={staniState} mouth={MouthType.open_teeth_2} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={staniState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(30)}>
+              <MouthMotion state={staniState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="Klaus Controller">
@@ -279,6 +865,12 @@ export const Scene3: React.FC = () => {
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1)}>
+              <Wiggle state={klausState} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(4.3)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.4)}>
               <Wiggle state={klausState} />
             </Series.Sequence>
           </Series>
@@ -298,7 +890,10 @@ export const Scene3: React.FC = () => {
               />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(1)}>
-              <MouthMotion state={klausState} mouth={MouthType.open_teeth_tongue_2} />
+              <MouthMotion
+                state={klausState}
+                mouth={MouthType.open_teeth_tongue_2}
+              />
               <HeadMotion
                 movementType={MovementType.normal_3}
                 state={klausState}
@@ -313,6 +908,265 @@ export const Scene3: React.FC = () => {
                 movementType={MovementType.normal_3}
                 state={klausState}
               />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(66.8)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.5)}>
+              <MouthMotion
+                state={klausState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={klausState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.6)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.4)}>
+              <MouthMotion
+                state={klausState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={klausState} mouth={MouthType.open_teeth_2} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={klausState}
+                mouth={MouthType.open_teeth_tongue_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={klausState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={klausState} mouth={MouthType.open_teeth_4} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={klausState} mouth={MouthType.open_teeth_5} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={klausState} mouth={MouthType.open_teeth_1} />
+              <HeadMotion
+                movementType={MovementType.normal_3}
+                state={klausState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(20)}>
+              <MouthMotion state={klausState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+          </Series>
+        </Sequence>
+
+        <Sequence name="Alex Controller">
+          <BlinkMotion state={alexState} interval={seconds(2.7)} />
+          <Scale start={0.4} state={alexState} />
+          <Stand at={{ x: 630, y: -80 }} state={alexState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(44.4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <Wiggle state={alexState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(43.2)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <MouthMotion
+                state={alexState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.4)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion state={alexState} mouth={MouthType.open_3} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(26.5)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <MouthMotion
+                state={alexState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.8)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
+              <MouthMotion
+                state={alexState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.7)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={alexState}
+                conversation={ConversationType.speak_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(8.4)}>
+              <MouthMotion state={alexState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.9)}>
+              <MouthMotion
+                state={alexState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(0.6)}>
+              <MouthMotion state={alexState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1.3)}>
+              <MouthMotion
+                state={alexState}
+                conversation={ConversationType.shout_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_1}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion state={alexState} mouth={MouthType.unhappy} />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion state={alexState} mouth={MouthType.open_1} />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={alexState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={alexState} mouth={MouthType.open_teeth_4} />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={alexState} mouth={MouthType.open_teeth_7} />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion
+                state={alexState}
+                mouth={MouthType.open_teeth_tongue_2}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(2)}>
+              <MouthMotion state={alexState} mouth={MouthType.open_3} />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(1)}>
+              <MouthMotion
+                state={alexState}
+                mouth={MouthType.open_teeth_tongue_1}
+              />
+              <HeadMotion
+                movementType={MovementType.normal_2}
+                state={alexState}
+              />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(30)}>
+              <MouthMotion state={alexState} mouth={MouthType.unhappy} />
             </Series.Sequence>
           </Series>
         </Sequence>
@@ -349,6 +1203,10 @@ export const Scene3: React.FC = () => {
 
         <Sequence name="Otto">
           <Klaus characterState={ottoState} />
+        </Sequence>
+
+        <Sequence name="Alex">
+          <Alex characterState={alexState} />
         </Sequence>
 
         <Sequence name="Postler">
