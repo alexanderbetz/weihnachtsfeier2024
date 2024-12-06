@@ -1256,10 +1256,10 @@ export const Scene3: React.FC = () => {
           </Series>
 
           <Series>
-            <Series.Sequence durationInFrames={seconds(98.4)}>
+            <Series.Sequence durationInFrames={seconds(99.4)}>
               <span />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={seconds(1.2)}>
+            <Series.Sequence durationInFrames={seconds(0.5)}>
               <MouthMotion
                 state={vlaState}
                 conversation={ConversationType.shout_1}
@@ -1279,10 +1279,10 @@ export const Scene3: React.FC = () => {
               />
               <HeadMotion movementType={MovementType.normal_2} state={vlaState} />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={seconds(0.3)}>
+            <Series.Sequence durationInFrames={seconds(0.4)}>
               <MouthMotion state={vlaState} mouth={MouthType.unhappy} />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={seconds(2)}>
+            <Series.Sequence durationInFrames={seconds(1.5)}>
               <MouthMotion
                 state={vlaState}
                 conversation={ConversationType.speak_2}
@@ -1323,7 +1323,7 @@ export const Scene3: React.FC = () => {
           </Series>
 
           <Series>
-            <Series.Sequence durationInFrames={seconds(98.8)}>
+            <Series.Sequence durationInFrames={seconds(99)}>
               <span />
             </Series.Sequence>
             <Series.Sequence durationInFrames={seconds(0.8)}>
