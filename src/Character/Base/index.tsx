@@ -5,7 +5,6 @@ import { makeTransform, rotate, translate } from "@remotion/animation-utils";
 import { useRefChange } from "../../util/use-ref-change";
 import { EyeBrows, EyeBrowType } from "./EyeBrows";
 import { Eyes, EyeType } from "./Eyes";
-import { useCurrentFrame } from "remotion";
 
 export const characterSchema = z.object({
   offsets: z
@@ -15,6 +14,8 @@ export const characterSchema = z.object({
       eyesScale: z.number().optional(),
       mouth: z.number().optional(),
       mouthScale: z.number().optional(),
+      ignoreMouth: z.boolean().optional(),
+      ignoreEyes: z.boolean().optional(),
     })
     .optional(),
   assets: z.object({
@@ -102,24 +103,28 @@ export const Character: React.FC<z.infer<typeof characterSchema>> = (props) => {
             <ScalableImg src={props.assets.head} scale={headScale} />
           </div>
 
-          <div
-            className="mouth absolute left-1/2 -translate-x-1/2 translate-y-1/2"
-            style={{ bottom: (mouthOffset ?? 50) * scale + "px" }}
-          >
-            <Mouth scale={scale * 0.8 * mouthScale} mouth={state.mouth} />
-          </div>
+          {!props.offsets?.ignoreMouth && (
+            <div
+              className="mouth absolute left-1/2 -translate-x-1/2 translate-y-1/2"
+              style={{ bottom: (mouthOffset ?? 50) * scale + "px" }}
+            >
+              <Mouth scale={scale * 0.8 * mouthScale} mouth={state.mouth} />
+            </div>
+          )}
 
-          <div
-            className="eyes absolute left-1/2 -translate-x-1/2"
-            style={{ bottom: (eyesOffset ?? 100) * scale + "px" }}
-          >
-            <Eyes
-              scale={scale * 0.7 * eyesScale}
-              eyes={state.eyes}
-              angle={state.eyeAngle}
-              blink={state.blink}
-            />
-          </div>
+          {!props.offsets?.ignoreEyes && (
+            <div
+              className="eyes absolute left-1/2 -translate-x-1/2"
+              style={{ bottom: (eyesOffset ?? 100) * scale + "px" }}
+            >
+              <Eyes
+                scale={scale * 0.7 * eyesScale}
+                eyes={state.eyes}
+                angle={state.eyeAngle}
+                blink={state.blink}
+              />
+            </div>
+          )}
 
           {state.eyeBrows >= 0 && (
             <div

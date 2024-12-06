@@ -23,6 +23,8 @@ import { Hannes } from "../Character/Hannes";
 import { Danny } from "../Character/Danny";
 import { Otto } from "../Character/Otto";
 import { Stani } from "../Character/Stani";
+import { Vla } from "../Character/Vla";
+import { Rick } from "../Character/Rick";
 
 export const Scene3: React.FC = () => {
   const frame = useCurrentFrame();
@@ -363,6 +365,24 @@ export const Scene3: React.FC = () => {
         <Sequence name="Rick Controller">
           <Scale start={0.4} state={rickState} />
           <Stand at={{ x: -800, y: -300 }} state={rickState} />
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(25)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <HeadMotion fast movementType={MovementType.normal_1} state={rickState} />
+            </Series.Sequence>
+          </Series>
+
+          <Series>
+            <Series.Sequence durationInFrames={seconds(25)}>
+              <span />
+            </Series.Sequence>
+            <Series.Sequence durationInFrames={seconds(3)}>
+              <Wiggle state={rickState}></Wiggle>
+            </Series.Sequence>
+          </Series>
         </Sequence>
 
         <Sequence name="Otto Controller">
@@ -1396,7 +1416,7 @@ export const Scene3: React.FC = () => {
         </Sequence>
 
         <Sequence name="Rick">
-          <Klaus characterState={rickState} />
+          <Rick characterState={rickState} />
         </Sequence>
 
         <Sequence name="Klaus">
@@ -1436,7 +1456,7 @@ export const Scene3: React.FC = () => {
         </Sequence>
 
         <Sequence name="Vla">
-          <Danny characterState={vlaState} />
+          <Vla characterState={vlaState} />
         </Sequence>
 
         <Sequence name="Danny">
