@@ -13,6 +13,7 @@ import { Scene3 } from "./Scene3";
 import { Scene6 } from "./Scene6";
 import { Credits } from "./Credits";
 import { Scene10 } from "./Scene10";
+import { Scene11 } from "./Scene11";
 
 export const Main: React.FC = () => {
   return (
@@ -62,8 +63,12 @@ export const Main: React.FC = () => {
           <Scene10 />
         </Series.Sequence>
 
-        <Series.Sequence name="Scene-11" durationInFrames={seconds(28)}>
+        <Series.Sequence name="Credits" durationInFrames={seconds(28)}>
           <Credits />
+        </Series.Sequence>
+
+        <Series.Sequence name="Alle Charaktere" durationInFrames={seconds(10)}>
+          <Scene11 />
         </Series.Sequence>
       </Series>
     </>

@@ -40,7 +40,8 @@ export const RemotionRoot: React.FC = () => {
           seconds(108) +
           seconds(99) +
           seconds(10) +
-          seconds(28)
+          seconds(28) +
+          seconds(10)
         }
         fps={fps}
         width={width}
